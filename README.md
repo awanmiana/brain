@@ -6,6 +6,30 @@ readout instead of a softmax temperature.
 
 Runs on **pure Python 3.10+ stdlib** (no numpy, no pip, no network).
 
+> **Pathway Lattice v1** ([`pathway_lattice.py`](pathway_lattice.py),
+> [`PATHWAY_LATTICE.md`](PATHWAY_LATTICE.md)) — a non-generative reasoning core:
+> a path is *determined*, then composed 1000 → path → 1000. No sampling, no
+> next-token prediction; unknown queries abstain instead of hallucinating.
+>
+> **Triple Lattice v1** ([`triple_lattice.py`](triple_lattice.py),
+> [`TRIPLE_LATTICE.md`](TRIPLE_LATTICE.md)) — 1000 domains × 1000 relations ×
+> 1000 values = 10⁹ structured cells with calibrated `PROBABLE` / `POSSIBLE` /
+> `ESTIMATE` / `UNKNOWN` verdicts. Measured: precision 1.000 on every asserted
+> answer, 0/821 hallucinations out-of-distribution.
+>
+> **Growth loop** ([`grow.py`](grow.py)) — training *is* compilation: every
+> datum an agent feeds becomes one operator (+2,000 params) in closed form,
+> with conflict / multi-valued policies; a 2,000-fact stream grows the model
+> 478K → 4.48M parameters at exactly 2,000 per fact.
+>
+> **Hybrid front-end** ([`hybrid_demo.py`](hybrid_demo.py)) — a zero-parameter
+> deterministic English parser feeding the lattice; the cheap half of the
+> "borrowed tongue, deterministic brain" architecture.
+>
+> **Audit** ([`AUDIT.md`](AUDIT.md)) — critical self-audit: 10 defects found
+> and fixed, 12 open gaps documented (2 HIGH), and the exact list of verified
+> claims. The core is sound within its claims; it is not "complete".
+
 > **Child Brain v1** — a developmental agent grown on this engine — is in
 > [`child_brain.py`](child_brain.py) and documented in
 > [`CHILD_BRAIN.md`](CHILD_BRAIN.md). It adds staged learning, episodic memory,
