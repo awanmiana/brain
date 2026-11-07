@@ -1,0 +1,1276 @@
+{
+  "version": "1.0.0",
+  "seed": 215630425694246,
+  "caregiver_dialect": {
+    "bias": [
+      0.40888,
+      -0.44267,
+      0.54816,
+      0.31285,
+      0.05636,
+      -0.53459,
+      -0.29587,
+      -0.16394
+    ],
+    "gain": [
+      1.19335,
+      1.14979,
+      0.81597,
+      1.1306,
+      0.96958,
+      0.80524,
+      1.11832,
+      0.91863,
+      1.08251,
+      1.19868
+    ],
+    "offset": [
+      0.08417,
+      0.0636,
+      -0.03058,
+      -0.01235,
+      0.02016,
+      -0.00012,
+      -0.05661,
+      0.0248,
+      -0.06222,
+      -0.01938
+    ]
+  },
+  "stages": [
+    {
+      "stage": 0,
+      "name": "newborn",
+      "age": "0-1",
+      "description": "Reflexes only: the innate v5 temperament meets the world.",
+      "learned": false,
+      "experiences": 120,
+      "asked": 0,
+      "supervised": 0,
+      "corrected": 0,
+      "answered": 0,
+      "approval": null,
+      "calibration": null,
+      "sleep": {
+        "epochs": 0,
+        "replayed": 0
+      },
+      "pruned_features": 0,
+      "metrics": {
+        "n": 80,
+        "basic_acc": 0.725,
+        "affect_mse": 0.15391,
+        "nll": 0.8555,
+        "ece": 0.2481,
+        "mean_confidence": 0.4883,
+        "mean_epistemic": 0.7106,
+        "coverage": 1.0,
+        "selective_acc": 0.725,
+        "acc_at_50": 0.775,
+        "acc_at_70": 0.7857,
+        "acc_at_90": 0.7361,
+        "innate_basic_acc": 0.725,
+        "innate_affect_mse": 0.0198,
+        "teacher_mapping_acc": 0.775,
+        "memory_used": 0.0
+      },
+      "learning_curve": [],
+      "probe_curve": [],
+      "seconds": 2.96
+    },
+    {
+      "stage": 1,
+      "name": "infant",
+      "age": "1-2",
+      "description": "Names for feelings: simple scenes, heavy caregiver scaffolding.",
+      "learned": true,
+      "experiences": 300,
+      "supervised": 248,
+      "asked": 9,
+      "corrected": 0,
+      "answered": 298,
+      "approval": 0.9073,
+      "sleep": {
+        "epochs": 1,
+        "replayed": 257,
+        "pool": 257
+      },
+      "pruned_features": 0,
+      "calibration": {
+        "T": 0.2,
+        "nll": 0.07038,
+        "ece_before": 0.3467,
+        "ece_after": 0.0274,
+        "answer_threshold": 0.85
+      },
+      "metrics": {
+        "n": 100,
+        "basic_acc": 0.98,
+        "affect_mse": 2e-05,
+        "nll": 0.0658,
+        "ece": 0.0228,
+        "mean_confidence": 0.9615,
+        "mean_epistemic": 0.0966,
+        "coverage": 1.0,
+        "selective_acc": 0.98,
+        "acc_at_50": 1.0,
+        "acc_at_70": 0.9857,
+        "acc_at_90": 0.9889,
+        "innate_basic_acc": 0.77,
+        "innate_affect_mse": 0.02002,
+        "teacher_mapping_acc": 0.75,
+        "memory_used": 1.0
+      },
+      "learning_curve": [
+        {
+          "seen": 50,
+          "acc": 0.86
+        },
+        {
+          "seen": 100,
+          "acc": 0.92
+        },
+        {
+          "seen": 150,
+          "acc": 0.9467
+        },
+        {
+          "seen": 200,
+          "acc": 0.94
+        },
+        {
+          "seen": 250,
+          "acc": 0.952
+        },
+        {
+          "seen": 300,
+          "acc": 0.9567
+        }
+      ],
+      "probe_curve": [
+        {
+          "seen": 0,
+          "acc": 0.825,
+          "affect_mse": 0.16027
+        },
+        {
+          "seen": 100,
+          "acc": 0.975,
+          "affect_mse": 0.01745
+        },
+        {
+          "seen": 200,
+          "acc": 0.975,
+          "affect_mse": 0.00053
+        },
+        {
+          "seen": 300,
+          "acc": 0.975,
+          "affect_mse": 0.0002
+        }
+      ],
+      "seconds": 21.17
+    },
+    {
+      "stage": 2,
+      "name": "toddler",
+      "age": "2-4",
+      "description": "Two-scene stories, intensifiers, first negation, first questions.",
+      "learned": true,
+      "experiences": 400,
+      "supervised": 225,
+      "asked": 0,
+      "corrected": 8,
+      "answered": 310,
+      "approval": 0.7557,
+      "sleep": {
+        "epochs": 2,
+        "replayed": 640,
+        "pool": 320
+      },
+      "pruned_features": 0,
+      "calibration": {
+        "T": 0.35,
+        "nll": 0.38022,
+        "ece_before": 0.286,
+        "ece_after": 0.0335,
+        "answer_threshold": 0.85
+      },
+      "metrics": {
+        "n": 120,
+        "basic_acc": 0.9083,
+        "affect_mse": 0.0,
+        "nll": 0.3218,
+        "ece": 0.0525,
+        "mean_confidence": 0.8807,
+        "mean_epistemic": 0.1322,
+        "coverage": 0.9667,
+        "selective_acc": 0.9224,
+        "acc_at_50": 1.0,
+        "acc_at_70": 0.9881,
+        "acc_at_90": 0.9352,
+        "innate_basic_acc": 0.7417,
+        "innate_affect_mse": 0.01159,
+        "teacher_mapping_acc": 0.7083,
+        "memory_used": 1.0
+      },
+      "learning_curve": [
+        {
+          "seen": 50,
+          "acc": 0.94
+        },
+        {
+          "seen": 100,
+          "acc": 0.96
+        },
+        {
+          "seen": 150,
+          "acc": 0.9667
+        },
+        {
+          "seen": 200,
+          "acc": 0.945
+        },
+        {
+          "seen": 250,
+          "acc": 0.944
+        },
+        {
+          "seen": 300,
+          "acc": 0.9267
+        },
+        {
+          "seen": 350,
+          "acc": 0.9114
+        },
+        {
+          "seen": 400,
+          "acc": 0.9025
+        }
+      ],
+      "probe_curve": [
+        {
+          "seen": 0,
+          "acc": 0.9,
+          "affect_mse": 0.00289
+        },
+        {
+          "seen": 100,
+          "acc": 0.95,
+          "affect_mse": 0.00047
+        },
+        {
+          "seen": 200,
+          "acc": 0.9,
+          "affect_mse": 1e-05
+        },
+        {
+          "seen": 300,
+          "acc": 0.9,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 400,
+          "acc": 0.925,
+          "affect_mse": 0.0
+        }
+      ],
+      "seconds": 34.73
+    },
+    {
+      "stage": 3,
+      "name": "child",
+      "age": "4-7",
+      "description": "Mixed feelings, social conflict, less supervision, more memory.",
+      "learned": true,
+      "experiences": 450,
+      "supervised": 171,
+      "asked": 2,
+      "corrected": 20,
+      "answered": 279,
+      "approval": 0.5932,
+      "sleep": {
+        "epochs": 2,
+        "replayed": 640,
+        "pool": 320
+      },
+      "pruned_features": 1,
+      "calibration": {
+        "T": 0.45,
+        "nll": 0.53933,
+        "ece_before": 0.2529,
+        "ece_after": 0.0484,
+        "answer_threshold": 0.8089
+      },
+      "metrics": {
+        "n": 140,
+        "basic_acc": 0.8143,
+        "affect_mse": 0.0,
+        "nll": 0.5975,
+        "ece": 0.0677,
+        "mean_confidence": 0.7956,
+        "mean_epistemic": 0.1369,
+        "coverage": 0.7071,
+        "selective_acc": 0.9596,
+        "acc_at_50": 0.9714,
+        "acc_at_70": 0.9592,
+        "acc_at_90": 0.8492,
+        "innate_basic_acc": 0.6786,
+        "innate_affect_mse": 0.01002,
+        "teacher_mapping_acc": 0.8357,
+        "memory_used": 0.9929
+      },
+      "learning_curve": [
+        {
+          "seen": 50,
+          "acc": 0.88
+        },
+        {
+          "seen": 100,
+          "acc": 0.89
+        },
+        {
+          "seen": 150,
+          "acc": 0.8933
+        },
+        {
+          "seen": 200,
+          "acc": 0.885
+        },
+        {
+          "seen": 250,
+          "acc": 0.876
+        },
+        {
+          "seen": 300,
+          "acc": 0.8533
+        },
+        {
+          "seen": 350,
+          "acc": 0.8543
+        },
+        {
+          "seen": 400,
+          "acc": 0.8325
+        },
+        {
+          "seen": 450,
+          "acc": 0.8333
+        }
+      ],
+      "probe_curve": [
+        {
+          "seen": 0,
+          "acc": 0.825,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 100,
+          "acc": 0.925,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 200,
+          "acc": 0.875,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 300,
+          "acc": 0.925,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 400,
+          "acc": 0.875,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 450,
+          "acc": 0.9,
+          "affect_mse": 0.0
+        }
+      ],
+      "seconds": 48.44
+    },
+    {
+      "stage": 4,
+      "name": "adolescent",
+      "age": "7-11",
+      "description": "Ambiguity, abstraction, three scenes, metacognitive practice.",
+      "learned": true,
+      "experiences": 450,
+      "supervised": 139,
+      "asked": 7,
+      "corrected": 15,
+      "answered": 298,
+      "approval": 0.6813,
+      "sleep": {
+        "epochs": 3,
+        "replayed": 960,
+        "pool": 320
+      },
+      "pruned_features": 1,
+      "calibration": {
+        "T": 0.4,
+        "nll": 0.45338,
+        "ece_before": 0.2797,
+        "ece_after": 0.039,
+        "answer_threshold": 0.7945
+      },
+      "metrics": {
+        "n": 140,
+        "basic_acc": 0.7714,
+        "affect_mse": 0.0,
+        "nll": 0.8487,
+        "ece": 0.0609,
+        "mean_confidence": 0.8132,
+        "mean_epistemic": 0.1068,
+        "coverage": 0.7714,
+        "selective_acc": 0.8611,
+        "acc_at_50": 0.9429,
+        "acc_at_70": 0.8878,
+        "acc_at_90": 0.8175,
+        "innate_basic_acc": 0.6643,
+        "innate_affect_mse": 0.00843,
+        "teacher_mapping_acc": 0.8286,
+        "memory_used": 0.9643
+      },
+      "learning_curve": [
+        {
+          "seen": 50,
+          "acc": 0.86
+        },
+        {
+          "seen": 100,
+          "acc": 0.85
+        },
+        {
+          "seen": 150,
+          "acc": 0.8467
+        },
+        {
+          "seen": 200,
+          "acc": 0.825
+        },
+        {
+          "seen": 250,
+          "acc": 0.824
+        },
+        {
+          "seen": 300,
+          "acc": 0.8267
+        },
+        {
+          "seen": 350,
+          "acc": 0.8286
+        },
+        {
+          "seen": 400,
+          "acc": 0.825
+        },
+        {
+          "seen": 450,
+          "acc": 0.8222
+        }
+      ],
+      "probe_curve": [
+        {
+          "seen": 0,
+          "acc": 0.825,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 100,
+          "acc": 0.8,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 200,
+          "acc": 0.8,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 300,
+          "acc": 0.8,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 400,
+          "acc": 0.825,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 450,
+          "acc": 0.825,
+          "affect_mse": 0.0
+        }
+      ],
+      "seconds": 57.89
+    },
+    {
+      "stage": 5,
+      "name": "adult",
+      "age": "11-16",
+      "description": "Transfer: novel frames, sparse labels, self-regulation.",
+      "learned": true,
+      "experiences": 400,
+      "supervised": 94,
+      "asked": 9,
+      "corrected": 22,
+      "answered": 272,
+      "approval": 0.6738,
+      "sleep": {
+        "epochs": 3,
+        "replayed": 960,
+        "pool": 320
+      },
+      "pruned_features": 1,
+      "calibration": {
+        "T": 0.45,
+        "nll": 0.55244,
+        "ece_before": 0.272,
+        "ece_after": 0.0602,
+        "answer_threshold": 0.6598
+      },
+      "metrics": {
+        "n": 140,
+        "basic_acc": 0.8571,
+        "affect_mse": 0.0,
+        "nll": 0.4657,
+        "ece": 0.0789,
+        "mean_confidence": 0.8103,
+        "mean_epistemic": 0.108,
+        "coverage": 0.8071,
+        "selective_acc": 0.9558,
+        "acc_at_50": 0.9714,
+        "acc_at_70": 0.9592,
+        "acc_at_90": 0.8968,
+        "innate_basic_acc": 0.6929,
+        "innate_affect_mse": 0.00967,
+        "teacher_mapping_acc": 0.8286,
+        "memory_used": 0.9786
+      },
+      "learning_curve": [
+        {
+          "seen": 50,
+          "acc": 0.82
+        },
+        {
+          "seen": 100,
+          "acc": 0.83
+        },
+        {
+          "seen": 150,
+          "acc": 0.82
+        },
+        {
+          "seen": 200,
+          "acc": 0.84
+        },
+        {
+          "seen": 250,
+          "acc": 0.832
+        },
+        {
+          "seen": 300,
+          "acc": 0.82
+        },
+        {
+          "seen": 350,
+          "acc": 0.8171
+        },
+        {
+          "seen": 400,
+          "acc": 0.8075
+        }
+      ],
+      "probe_curve": [
+        {
+          "seen": 0,
+          "acc": 0.875,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 100,
+          "acc": 0.925,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 200,
+          "acc": 0.9,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 300,
+          "acc": 0.925,
+          "affect_mse": 0.0
+        },
+        {
+          "seen": 400,
+          "acc": 0.925,
+          "affect_mse": 0.0
+        }
+      ],
+      "seconds": 58.49
+    }
+  ],
+  "retention": {
+    "1": {
+      "0": {
+        "n": 80,
+        "basic_acc": 0.975,
+        "affect_mse": 5e-05,
+        "nll": 0.0923,
+        "ece": 0.0198,
+        "mean_confidence": 0.9745,
+        "mean_epistemic": 0.0968,
+        "coverage": 1.0,
+        "selective_acc": 0.975,
+        "acc_at_50": 1.0,
+        "acc_at_70": 0.9643,
+        "acc_at_90": 0.9722,
+        "innate_basic_acc": 0.725,
+        "innate_affect_mse": 0.0198,
+        "teacher_mapping_acc": 0.775,
+        "memory_used": 1.0
+      }
+    },
+    "2": {
+      "0": {
+        "n": 80,
+        "basic_acc": 0.975,
+        "affect_mse": 0.0,
+        "nll": 0.1364,
+        "ece": 0.0538,
+        "mean_confidence": 0.9284,
+        "mean_epistemic": 0.1036,
+        "coverage": 1.0,
+        "selective_acc": 0.975,
+        "acc_at_50": 1.0,
+        "acc_at_70": 0.9821,
+        "acc_at_90": 0.9722,
+        "innate_basic_acc": 0.725,
+        "innate_affect_mse": 0.0198,
+        "teacher_mapping_acc": 0.775,
+        "memory_used": 1.0
+      },
+      "1": {
+        "n": 100,
+        "basic_acc": 0.97,
+        "affect_mse": 0.0,
+        "nll": 0.1447,
+        "ece": 0.0547,
+        "mean_confidence": 0.9153,
+        "mean_epistemic": 0.1048,
+        "coverage": 1.0,
+        "selective_acc": 0.97,
+        "acc_at_50": 1.0,
+        "acc_at_70": 0.9857,
+        "acc_at_90": 0.9889,
+        "innate_basic_acc": 0.77,
+        "innate_affect_mse": 0.02002,
+        "teacher_mapping_acc": 0.75,
+        "memory_used": 1.0
+      }
+    },
+    "3": {
+      "0": {
+        "n": 80,
+        "basic_acc": 0.975,
+        "affect_mse": 0.0,
+        "nll": 0.1838,
+        "ece": 0.1066,
+        "mean_confidence": 0.8752,
+        "mean_epistemic": 0.1115,
+        "coverage": 0.95,
+        "selective_acc": 0.9737,
+        "acc_at_50": 1.0,
+        "acc_at_70": 1.0,
+        "acc_at_90": 0.9722,
+        "innate_basic_acc": 0.725,
+        "innate_affect_mse": 0.0198,
+        "teacher_mapping_acc": 0.775,
+        "memory_used": 1.0
+      },
+      "1": {
+        "n": 100,
+        "basic_acc": 0.98,
+        "affect_mse": 0.0,
+        "nll": 0.1648,
+        "ece": 0.1119,
+        "mean_confidence": 0.8681,
+        "mean_epistemic": 0.1118,
+        "coverage": 0.92,
+        "selective_acc": 0.9783,
+        "acc_at_50": 1.0,
+        "acc_at_70": 1.0,
+        "acc_at_90": 0.9778,
+        "innate_basic_acc": 0.77,
+        "innate_affect_mse": 0.02002,
+        "teacher_mapping_acc": 0.75,
+        "memory_used": 1.0
+      },
+      "2": {
+        "n": 120,
+        "basic_acc": 0.9083,
+        "affect_mse": 0.0,
+        "nll": 0.3594,
+        "ece": 0.0808,
+        "mean_confidence": 0.8358,
+        "mean_epistemic": 0.1224,
+        "coverage": 0.8417,
+        "selective_acc": 0.9505,
+        "acc_at_50": 1.0,
+        "acc_at_70": 0.9881,
+        "acc_at_90": 0.9352,
+        "innate_basic_acc": 0.7417,
+        "innate_affect_mse": 0.01159,
+        "teacher_mapping_acc": 0.7083,
+        "memory_used": 1.0
+      }
+    },
+    "4": {
+      "0": {
+        "n": 80,
+        "basic_acc": 0.975,
+        "affect_mse": 0.0,
+        "nll": 0.1523,
+        "ece": 0.0699,
+        "mean_confidence": 0.9051,
+        "mean_epistemic": 0.0925,
+        "coverage": 0.975,
+        "selective_acc": 0.9744,
+        "acc_at_50": 1.0,
+        "acc_at_70": 1.0,
+        "acc_at_90": 0.9861,
+        "innate_basic_acc": 0.725,
+        "innate_affect_mse": 0.0198,
+        "teacher_mapping_acc": 0.775,
+        "memory_used": 1.0
+      },
+      "1": {
+        "n": 100,
+        "basic_acc": 0.97,
+        "affect_mse": 0.0,
+        "nll": 0.1397,
+        "ece": 0.0865,
+        "mean_confidence": 0.8914,
+        "mean_epistemic": 0.0929,
+        "coverage": 0.95,
+        "selective_acc": 0.9895,
+        "acc_at_50": 1.0,
+        "acc_at_70": 1.0,
+        "acc_at_90": 0.9889,
+        "innate_basic_acc": 0.77,
+        "innate_affect_mse": 0.02002,
+        "teacher_mapping_acc": 0.75,
+        "memory_used": 1.0
+      },
+      "2": {
+        "n": 120,
+        "basic_acc": 0.925,
+        "affect_mse": 0.0,
+        "nll": 0.3146,
+        "ece": 0.0853,
+        "mean_confidence": 0.8638,
+        "mean_epistemic": 0.0978,
+        "coverage": 0.925,
+        "selective_acc": 0.955,
+        "acc_at_50": 1.0,
+        "acc_at_70": 1.0,
+        "acc_at_90": 0.9537,
+        "innate_basic_acc": 0.7417,
+        "innate_affect_mse": 0.01159,
+        "teacher_mapping_acc": 0.7083,
+        "memory_used": 1.0
+      },
+      "3": {
+        "n": 140,
+        "basic_acc": 0.8,
+        "affect_mse": 0.0,
+        "nll": 0.6692,
+        "ece": 0.0288,
+        "mean_confidence": 0.8234,
+        "mean_epistemic": 0.103,
+        "coverage": 0.8429,
+        "selective_acc": 0.8814,
+        "acc_at_50": 0.9429,
+        "acc_at_70": 0.9388,
+        "acc_at_90": 0.8571,
+        "innate_basic_acc": 0.6786,
+        "innate_affect_mse": 0.01002,
+        "teacher_mapping_acc": 0.8357,
+        "memory_used": 0.9857
+      }
+    },
+    "5": {
+      "0": {
+        "n": 80,
+        "basic_acc": 0.975,
+        "affect_mse": 0.0,
+        "nll": 0.1865,
+        "ece": 0.1069,
+        "mean_confidence": 0.8706,
+        "mean_epistemic": 0.0986,
+        "coverage": 0.95,
+        "selective_acc": 0.9868,
+        "acc_at_50": 1.0,
+        "acc_at_70": 1.0,
+        "acc_at_90": 0.9861,
+        "innate_basic_acc": 0.725,
+        "innate_affect_mse": 0.0198,
+        "teacher_mapping_acc": 0.775,
+        "memory_used": 1.0
+      },
+      "1": {
+        "n": 100,
+        "basic_acc": 0.99,
+        "affect_mse": 0.0,
+        "nll": 0.1799,
+        "ece": 0.1366,
+        "mean_confidence": 0.8534,
+        "mean_epistemic": 0.0988,
+        "coverage": 0.9,
+        "selective_acc": 1.0,
+        "acc_at_50": 1.0,
+        "acc_at_70": 1.0,
+        "acc_at_90": 1.0,
+        "innate_basic_acc": 0.77,
+        "innate_affect_mse": 0.02002,
+        "teacher_mapping_acc": 0.75,
+        "memory_used": 1.0
+      },
+      "2": {
+        "n": 120,
+        "basic_acc": 0.9333,
+        "affect_mse": 0.0,
+        "nll": 0.3196,
+        "ece": 0.102,
+        "mean_confidence": 0.8429,
+        "mean_epistemic": 0.1013,
+        "coverage": 0.9,
+        "selective_acc": 0.9722,
+        "acc_at_50": 1.0,
+        "acc_at_70": 1.0,
+        "acc_at_90": 0.9722,
+        "innate_basic_acc": 0.7417,
+        "innate_affect_mse": 0.01159,
+        "teacher_mapping_acc": 0.7083,
+        "memory_used": 1.0
+      },
+      "3": {
+        "n": 140,
+        "basic_acc": 0.8143,
+        "affect_mse": 0.0,
+        "nll": 0.5773,
+        "ece": 0.0671,
+        "mean_confidence": 0.7944,
+        "mean_epistemic": 0.104,
+        "coverage": 0.7786,
+        "selective_acc": 0.9174,
+        "acc_at_50": 0.9714,
+        "acc_at_70": 0.9388,
+        "acc_at_90": 0.8492,
+        "innate_basic_acc": 0.6786,
+        "innate_affect_mse": 0.01002,
+        "teacher_mapping_acc": 0.8357,
+        "memory_used": 0.9857
+      },
+      "4": {
+        "n": 140,
+        "basic_acc": 0.8143,
+        "affect_mse": 0.0,
+        "nll": 0.718,
+        "ece": 0.0895,
+        "mean_confidence": 0.7752,
+        "mean_epistemic": 0.1064,
+        "coverage": 0.7571,
+        "selective_acc": 0.9057,
+        "acc_at_50": 1.0,
+        "acc_at_70": 0.9286,
+        "acc_at_90": 0.873,
+        "innate_basic_acc": 0.6643,
+        "innate_affect_mse": 0.00843,
+        "teacher_mapping_acc": 0.8286,
+        "memory_used": 0.9929
+      }
+    }
+  },
+  "total_seconds": 240.43,
+  "policy": "uncertainty",
+  "sleep_enabled": true,
+  "memory_enabled": true,
+  "regulation": {
+    "n": 90,
+    "chosen_reward": 0.07636,
+    "random_reward": -0.01308,
+    "oracle_reward": 0.08074,
+    "best_fixed": {
+      "none": -0.13779,
+      "breathe": 0.01307,
+      "reframe": 0.06607,
+      "seek_support": 0.07872,
+      "rest": -0.00704,
+      "approach": -0.01981
+    }
+  },
+  "ablations": {
+    "full": {
+      "final_acc": 0.8286,
+      "final_affect_mse": 0.0,
+      "final_ece": 0.1016,
+      "retention_infant_acc": 0.9833,
+      "asked": 10.0,
+      "labels": 378.5,
+      "acc_per_label": 0.002189,
+      "acc_per_question": 0.082855,
+      "seeds": 2,
+      "seconds": 147.65
+    },
+    "no_memory": {
+      "final_acc": 0.8215,
+      "final_affect_mse": 0.000105,
+      "final_ece": 0.093,
+      "retention_infant_acc": 0.9625,
+      "asked": 9.0,
+      "labels": 377.5,
+      "acc_per_label": 0.002176,
+      "acc_per_question": 0.091272,
+      "seeds": 2,
+      "seconds": 97.92
+    },
+    "no_sleep": {
+      "final_acc": 0.8215,
+      "final_affect_mse": 0.00013,
+      "final_ece": 0.084,
+      "retention_infant_acc": 0.9667,
+      "asked": 10.5,
+      "labels": 377.5,
+      "acc_per_label": 0.002176,
+      "acc_per_question": 0.078233,
+      "seeds": 2,
+      "seconds": 129.43
+    },
+    "random_curiosity": {
+      "final_acc": 0.8107,
+      "final_affect_mse": 0.0,
+      "final_ece": 0.0962,
+      "retention_infant_acc": 0.9625,
+      "asked": 61.5,
+      "labels": 436.0,
+      "acc_per_label": 0.001859,
+      "acc_per_question": 0.013182,
+      "seeds": 2,
+      "seconds": 148.36
+    }
+  },
+  "milestones": [
+    {
+      "name": "recognises basic emotions",
+      "ok": true,
+      "value": 0.8571,
+      "target": "> 0.40"
+    },
+    {
+      "name": "improves on innate temperament",
+      "ok": true,
+      "value": 0.1321,
+      "target": "> +0.03 over newborn reflex"
+    },
+    {
+      "name": "learns the family dialect",
+      "ok": true,
+      "value": 0.0285,
+      "target": ">= -0.02 vs textbook mapping"
+    },
+    {
+      "name": "knows when it does not know",
+      "ok": true,
+      "value": 0.1143,
+      "target": "> +0.08 at 50% coverage"
+    },
+    {
+      "name": "is calibrated",
+      "ok": true,
+      "value": 0.0789,
+      "target": "< 0.10"
+    },
+    {
+      "name": "remembers earlier lessons",
+      "ok": true,
+      "value": 1.0102,
+      "target": "> 0.70 of first-stage accuracy"
+    },
+    {
+      "name": "asks useful questions",
+      "ok": true,
+      "value": 6.29,
+      "target": "> 1x accuracy per question vs random"
+    },
+    {
+      "name": "memory supports recall",
+      "ok": true,
+      "value": 0.0208,
+      "target": "memory > no-memory retention"
+    },
+    {
+      "name": "sleep consolidates",
+      "ok": true,
+      "value": 0.0166,
+      "target": "sleep > no-sleep retention"
+    },
+    {
+      "name": "regulates affect",
+      "ok": true,
+      "value": 0.08944,
+      "target": "chosen > random reward"
+    }
+  ],
+  "demo": [
+    {
+      "text": "The GPS dies in the dark and I am completely alone on a broken trail.",
+      "predicted_basic": "fear",
+      "caregiver_basic": "fear",
+      "correct": true,
+      "confidence": 0.9997,
+      "p_correct": 0.9034,
+      "decision": "answer",
+      "affect": {
+        "valence": -0.3359,
+        "arousal": 0.4193,
+        "control": -0.29,
+        "novelty": 0.1714,
+        "social": -0.1457,
+        "threat": 0.365,
+        "clarity": -0.2049,
+        "engagement": 0.3653,
+        "tension": 0.3344,
+        "resolve": 0.2404
+      },
+      "memory_similarity": 0.9226,
+      "expression": {
+        "mental_state": "Acute Fear and Urgent Self-Preservation",
+        "behavior": "Stop, breathe once, identify the nearest safe exit, and move before taking any further notes.",
+        "thought": "Records can be reconstructed; the body comes first, the notebook second."
+      },
+      "coping_action": "seek_support",
+      "predicted_post_regulation_affect": {
+        "valence": -0.1759,
+        "arousal": 0.3593,
+        "control": -0.17,
+        "novelty": 0.1714,
+        "social": 0.1743,
+        "threat": 0.225,
+        "clarity": -0.0649,
+        "engagement": 0.4453,
+        "tension": 0.1944,
+        "resolve": 0.3404
+      }
+    },
+    {
+      "text": "I am deeply grateful for the village hospitality and the warm meal they shared.",
+      "predicted_basic": "joy",
+      "caregiver_basic": "joy",
+      "correct": true,
+      "confidence": 0.9156,
+      "p_correct": 0.8401,
+      "decision": "answer",
+      "affect": {
+        "valence": 0.9031,
+        "arousal": 0.4407,
+        "control": 0.1199,
+        "novelty": 0.1152,
+        "social": 0.6989,
+        "threat": -0.1706,
+        "clarity": 0.2947,
+        "engagement": 0.453,
+        "tension": -0.4319,
+        "resolve": 0.2446
+      },
+      "memory_similarity": 0.9515,
+      "expression": {
+        "mental_state": "Playful Lightness and Amusement",
+        "behavior": "Let the seriousness loosen, share the joke, record the moment in the margin.",
+        "thought": "The world is strange enough to be funny, and noticing is not a lapse of attention."
+      },
+      "coping_action": "seek_support",
+      "predicted_post_regulation_affect": {
+        "valence": 1.0,
+        "arousal": 0.3807,
+        "control": 0.2399,
+        "novelty": 0.1152,
+        "social": 1.0,
+        "threat": -0.3106,
+        "clarity": 0.4347,
+        "engagement": 0.533,
+        "tension": -0.5719,
+        "resolve": 0.3446
+      }
+    },
+    {
+      "text": "A long-delayed permit is finally approved after months of waiting.",
+      "predicted_basic": "joy",
+      "caregiver_basic": "joy",
+      "correct": true,
+      "confidence": 0.7924,
+      "p_correct": 0.7641,
+      "decision": "answer",
+      "affect": {
+        "valence": 0.5402,
+        "arousal": 0.0216,
+        "control": 0.1756,
+        "novelty": -0.1251,
+        "social": 0.1362,
+        "threat": -0.2383,
+        "clarity": 0.2743,
+        "engagement": 0.1561,
+        "tension": -0.2421,
+        "resolve": 0.4189
+      },
+      "memory_similarity": 0.895,
+      "expression": {
+        "mental_state": "Focused Flow and Methodical Absorption",
+        "behavior": "Set the rucksack down, lay notes out in sequence, work the problem in one unbroken stretch.",
+        "thought": "The next correct step is visible from here; keep the sequence intact."
+      },
+      "coping_action": "seek_support",
+      "predicted_post_regulation_affect": {
+        "valence": 0.7002,
+        "arousal": -0.0384,
+        "control": 0.2956,
+        "novelty": -0.1251,
+        "social": 0.4562,
+        "threat": -0.3783,
+        "clarity": 0.4143,
+        "engagement": 0.2361,
+        "tension": -0.3821,
+        "resolve": 0.5189
+      }
+    },
+    {
+      "text": "Discovering an ancient, hidden ruin nestled deep inside a dense forest.",
+      "predicted_basic": "joy",
+      "caregiver_basic": "joy",
+      "correct": true,
+      "confidence": 0.9443,
+      "p_correct": 0.8457,
+      "decision": "answer",
+      "affect": {
+        "valence": 0.7105,
+        "arousal": 0.3415,
+        "control": 0.0986,
+        "novelty": 0.7508,
+        "social": 0.0848,
+        "threat": -0.0001,
+        "clarity": -0.0007,
+        "engagement": 0.5454,
+        "tension": -0.1434,
+        "resolve": 0.3302
+      },
+      "memory_similarity": 0.9212,
+      "expression": {
+        "mental_state": "Creative Inspiration and Generative Flow",
+        "behavior": "Write immediately and badly, capture the shape, edit only after the impulse is spent.",
+        "thought": "This is not a plan yet, only something forming; keep the channel open."
+      },
+      "coping_action": "reframe",
+      "predicted_post_regulation_affect": {
+        "valence": 0.8105,
+        "arousal": 0.2415,
+        "control": 0.3386,
+        "novelty": 0.7308,
+        "social": 0.0848,
+        "threat": -0.1801,
+        "clarity": 0.2593,
+        "engagement": 0.6054,
+        "tension": -0.3034,
+        "resolve": 0.4702
+      }
+    },
+    {
+      "text": "Sitting quietly in a modest rented room, reviewing field notes and journaling.",
+      "predicted_basic": "joy",
+      "caregiver_basic": "joy",
+      "correct": true,
+      "confidence": 0.9246,
+      "p_correct": 0.8265,
+      "decision": "answer",
+      "affect": {
+        "valence": 0.4273,
+        "arousal": 0.0756,
+        "control": 0.2166,
+        "novelty": 0.2474,
+        "social": -0.1571,
+        "threat": -0.0632,
+        "clarity": 0.2704,
+        "engagement": 0.4422,
+        "tension": -0.2544,
+        "resolve": 0.2811
+      },
+      "memory_similarity": 0.8761,
+      "expression": {
+        "mental_state": "Intellectual Delight and Analytical Fascination",
+        "behavior": "Lay the evidence side by side, sketch the pattern, follow the question one step past the obvious.",
+        "thought": "The detail that does not fit is the most valuable thing in front of me."
+      },
+      "coping_action": "reframe",
+      "predicted_post_regulation_affect": {
+        "valence": 0.5273,
+        "arousal": -0.0244,
+        "control": 0.4566,
+        "novelty": 0.2274,
+        "social": -0.1571,
+        "threat": -0.2432,
+        "clarity": 0.5304,
+        "engagement": 0.5022,
+        "tension": -0.4144,
+        "resolve": 0.4211
+      }
+    },
+    {
+      "text": "A rockfall blocks the only path out and the light is failing.",
+      "predicted_basic": "fear",
+      "caregiver_basic": "fear",
+      "correct": true,
+      "confidence": 0.9917,
+      "p_correct": 0.8949,
+      "decision": "answer",
+      "affect": {
+        "valence": -0.2946,
+        "arousal": 0.2978,
+        "control": -0.3591,
+        "novelty": 0.1805,
+        "social": 0.0477,
+        "threat": 0.1715,
+        "clarity": -0.2314,
+        "engagement": 0.2685,
+        "tension": 0.3018,
+        "resolve": 0.2986
+      },
+      "memory_similarity": 0.8858,
+      "expression": {
+        "mental_state": "Acute Fear and Urgent Self-Preservation",
+        "behavior": "Stop, breathe once, identify the nearest safe exit, and move before taking any further notes.",
+        "thought": "Records can be reconstructed; the body comes first, the notebook second."
+      },
+      "coping_action": "seek_support",
+      "predicted_post_regulation_affect": {
+        "valence": -0.1346,
+        "arousal": 0.2378,
+        "control": -0.2391,
+        "novelty": 0.1805,
+        "social": 0.3677,
+        "threat": 0.0315,
+        "clarity": -0.0914,
+        "engagement": 0.3485,
+        "tension": 0.1618,
+        "resolve": 0.3986
+      }
+    },
+    {
+      "text": "Quartz vectors traverse the amber lattice.",
+      "state": "undetermined",
+      "abstained": true
+    }
+  ]
+}

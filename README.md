@@ -6,6 +6,12 @@ readout instead of a softmax temperature.
 
 Runs on **pure Python 3.10+ stdlib** (no numpy, no pip, no network).
 
+> **Child Brain v1** — a developmental agent grown on this engine — is in
+> [`child_brain.py`](child_brain.py) and documented in
+> [`CHILD_BRAIN.md`](CHILD_BRAIN.md). It adds staged learning, episodic memory,
+> curiosity, sleep replay, metacognition, and self-regulation on top of the
+> frozen v5 temperament.
+
 ```bash
 python3 affective_engine_v5.py --demo          # 7 illustrative inputs
 python3 affective_engine_v5.py --verify        # unfold 1M weights + integrity checks
