@@ -29,6 +29,10 @@ Runs on **pure Python 3.10+ stdlib** (no numpy, no pip, no network).
 > **Audit** ([`AUDIT.md`](AUDIT.md)) — critical self-audit: 10 defects found
 > and fixed, 12 open gaps documented (2 HIGH), and the exact list of verified
 > claims. The core is sound within its claims; it is not "complete".
+>
+> **Handoff** ([`NEXT.md`](NEXT.md)) — the state a future session needs:
+> verified numbers, environment traps, prioritized next work with concrete
+> file/line targets, and the invariants to preserve.
 
 > **Child Brain v1** — a developmental agent grown on this engine — is in
 > [`child_brain.py`](child_brain.py) and documented in
