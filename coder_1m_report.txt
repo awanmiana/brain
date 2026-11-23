@@ -1,0 +1,26 @@
+# TinyCoder-1M report
+
+- parameters: 999,540 (target ~1,000,000)
+- dim=162 layers=3 heads=2 head_dim=81 ffn=648 ctx=64
+- vocab=260 (256 byte tokens + BOS/EOS/PAD/UNK)
+- steps=160 batch=2 seq_len=8 lr=0.001 seed=20261129
+- training PPL (subset): 23.34   held-out val PPL: 15.31
+
+## Coding micro-bench (greedy generation vs held-out text)
+- exact-match snippets: 0/3
+- avg char accuracy of generated continuations: 0.194
+
+## Samples (greedy from prompt)
+- `def fizzbuzz(n):` -> `                    ...`
+- `class Counter:` -> `                    ...`
+
+## Honest notes
+- This is a ~1M-parameter byte-level coding LM: a 3-layer pre-LN transformer (d=162, 2 heads, FFN=648), trained with hand-written Adam.
+- Small PPL deltas are expected at this size; real coding ability needs more data, steps, and ideally a bigger model.
+- The self-learning demo (`--selflearn-demo`) measures PPL deltas before/after bounded online steps (see `SelfLearner`).
+## Self-learning demo
+- probe perplexity before learning: 17.479
+- probe perplexity after 3 Adam steps on the probe example: 11.513 (delta -5.966)
+- probe perplexity after 1 replay epoch (sleep): 9.116
+- total self-learning Adam steps taken: 7
+- honest note: at this model size the measured delta is small; real learning needs more data and steps.
