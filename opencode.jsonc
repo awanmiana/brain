@@ -1,0 +1,11 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "providers": {
+    "tinycoder": {
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": { "baseURL": "http://127.0.0.1:8765/v1" },
+      "models": { "tinycoder-1m": {} }
+    }
+  },
+  "model": "tinycoder/tinycoder-1m"
+}

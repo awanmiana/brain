@@ -1,0 +1,23 @@
+C++ memory: `new`/`delete` manual memory — or prefer `std::vector`, `std::unique_ptr`, `std::shared_ptr` for automatic management.
+
+
+C++ RAII: resource acquisition is initialization — constructors acquire, destructors release — e.g., `std::lock_guard<std::mutex>` for mutex locking.
+
+
+C++ templates: generic programming with `template <typename T>` — used by the STL containers; concepts and SFINAE are advanced topics.
+
+
+C++ move semantics: `std::move` transfers ownership of a resource from a temporary to avoid copies.
+
+
+C++ conventions: pass heavy arguments by const reference; use `const` for values that don't change; compile-time checks with `static_assert`.
+
+
+C++ specifics: `std::vector` and `std::string` are the workhorses; ranges (`std::views`) simplify pipelines; structured bindings (`auto [a, b] = ...`) unpack tuples and pairs.
+
+
+C++ 11+ concurrency: `std::thread`, `std::mutex`, `std::atomic`; `std::async`/`std::future` for task results.
+
+
+C++ build: `CMakeLists.txt` is the standard build file; targets with `add_executable` and `add_library`; link libraries with `target_link_libraries`.
+

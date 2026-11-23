@@ -1,0 +1,20 @@
+JavaScript async/await: `async function` + `await` makes async code read like sync — the foundation of modern Node.js code.
+
+
+JavaScript closures: a function that captures variables from its enclosing scope — the classic pattern for event handlers and callbacks.
+
+
+JavaScript modules: `export`/`import` for module systems; `const` for values, `let` for reassignment; template literals with `${}` for interpolation.
+
+
+JavaScript DOM: query elements with `document.querySelector`, attach listeners with `addEventListener` — the basis of browser apps.
+
+
+JavaScript typing: dynamic typing — check types with `typeof`/`Array.isArray`; use TypeScript where static types help.
+
+
+JavaScript conventions: prefer `const` over `let`; avoid global variables; use arrow functions for short callbacks; prefer `for...of` over index loops when the index is not needed.
+
+
+JavaScript specifics: `Promise.all` for concurrent awaits; spread syntax `{...a}` and `[...a]`; `Array.prototype.map/filter/reduce` for data pipelines.
+

@@ -1,0 +1,1285 @@
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "run_command", "args": {"path": "notes/plan.txt"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+{"tool": "run_command", "args": {"path": "data/rows.csv"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "search", "args": {"path": "src/main.py"}}
+
+{"tool": "write_file", "args": {"path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "run_command", "args": {"path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "run_command", "args": {"path": "data/rows.csv"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "read_file", "args": {"path": "src/main.py"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "read_file", "args": {"path": "notes/plan.txt"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "run_command", "args": {"path": "data/rows.csv"}}
+
+{"tool": "run_command", "args": {"path": "src/main.py"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "search", "args": {"path": "notes/plan.txt"}}
+
+{"tool": "read_file", "args": {"path": "notes/plan.txt"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"tool": "run_command", "args": {"path": "src/main.py"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "search", "args": {"path": "src/main.py"}}
+
+{"tool": "run_command", "args": {"path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"tool": "run_command", "args": {"path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"tool": "read_file", "args": {"path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "read_file", "args": {"path": "data/rows.csv"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"tool": "write_file", "args": {"path": "notes/plan.txt"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "run_command", "args": {"path": "notes/plan.txt"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "search", "args": {"path": "src/main.py"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "write_file", "args": {"path": "src/main.py"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "run_command", "args": {"path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "search", "args": {"path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "read_file", "args": {"path": "src/main.py"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "run_command", "args": {"path": "src/main.py"}}
+
+{"tool": "read_file", "args": {"path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"tool": "read_file", "args": {"path": "data/rows.csv"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "search", "args": {"path": "data/rows.csv"}}
+
+{"tool": "search", "args": {"path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "run_command", "args": {"path": "src/main.py"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "search", "args": {"path": "notes/plan.txt"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "read_file", "args": {"path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "read_file", "args": {"path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "run_command", "args": {"path": "data/rows.csv"}}
+
+{"tool": "read_file", "args": {"path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "write_file", "args": {"path": "data/rows.csv"}}
+
+{"tool": "run_command", "args": {"path": "src/main.py"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "search", "args": {"path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"tool": "run_command", "args": {"path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "read_file", "args": {"path": "src/main.py"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "run_command", "args": {"path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "run_command", "args": {"path": "notes/plan.txt"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "read_file", "args": {"path": "src/main.py"}}
+
+{"tool": "search", "args": {"path": "src/main.py"}}
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "write_file", "args": {"path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"tool": "search", "args": {"path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "run_command", "args": {"path": "notes/plan.txt"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "read_file", "args": {"path": "src/main.py"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "search", "args": {"path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"tool": "write_file", "args": {"path": "notes/plan.txt"}}
+
+{"tool": "write_file", "args": {"path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "write_file", "args": {"path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "read_file", "args": {"path": "src/main.py"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "search", "args": {"path": "notes/plan.txt"}}
+
+{"tool": "read_file", "args": {"path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "search", "args": {"path": "src/main.py"}}
+
+{"tool": "write_file", "args": {"path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"tool": "write_file", "args": {"path": "notes/plan.txt"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"tool": "run_command", "args": {"path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "write_file", "args": {"path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "search", "args": {"path": "src/main.py"}}
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "read_file", "args": {"path": "src/main.py"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "write_file", "args": {"path": "src/main.py"}}
+
+{"tool": "write_file", "args": {"path": "src/main.py"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"tool": "search", "args": {"path": "src/main.py"}}
+
+{"tool": "search", "args": {"path": "notes/plan.txt"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "run_command", "args": {"path": "notes/plan.txt"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"tool": "run_command", "args": {"path": "src/main.py"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"tool": "read_file", "args": {"path": "data/rows.csv"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"tool": "run_command", "args": {"path": "notes/plan.txt"}}
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+{"action": "call_tool", "tool": "read_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+{"tool": "search", "args": {"path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "notes/plan.txt"}}
+
+{"action": "call_tool", "tool": "write_file", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"tool": "write_file", "args": {"path": "data/rows.csv"}}
+
+<tool name="search"><arg name="query">logout bug</arg></tool>
+
+{"action": "call_tool", "tool": "search", "params": {"query": "TODO fix", "path": "src/main.py"}}
+
+{"action": "call_tool", "tool": "run_command", "params": {"query": "TODO fix", "path": "data/rows.csv"}}
+
+{"tool": "read_file", "args": {"path": "src/main.py"}}
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+Format: one JSON object per line — {"tool": "...", "args": {...}}. Never add prose outside the JSON.
+
+tool: write_file
+args:
+  path: notes/plan.txt
+  content: |
+    step one
+    step two
+

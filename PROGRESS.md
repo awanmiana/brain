@@ -8,6 +8,17 @@ State as of 2026-11-23 (continued after leaving for the office).
 - Best checkpoint: **160-step run, val PPL 16.90** — restored as the canonical
   weights (`coder_1m_weights.json`, byte-identical to
   `coder_1m_weights_step160.json`).
+- Resumed run (2026-11-23): `python3 coder_1m.py --train --steps 160 --resume`
+  — 160 more steps from the canonical checkpoint (run took ~11 min, faster
+  than the ~30 min estimate); val PPL improved — final train-loop eval
+  **10.44**.
+- `--eval` re-verification of the new checkpoint: held-out val PPL **10.17**,
+  training PPL 16.28, micro-bench 0/3 exact snippets, avg char accuracy
+  **0.306** (was 0.194). Report rewritten to `coder_1m_report.txt`; note the
+  report's `steps=` line reflects the `--eval` invocation (default 20) — the
+  canonical weights are the resumed run's.
+- `coder_1m_weights.json` now holds the resumed checkpoint;
+  `coder_1m_weights_step160.json` still snapshots the older one.
 - Background round: 120 steps from scratch, val PPL 17.07 → **discarded**
   (worse than the 160-step checkpoint).
 - Self-learning capability: built in (`SelfLearner`) and demonstrated
@@ -18,11 +29,14 @@ State as of 2026-11-23 (continued after leaving for the office).
   d=162, 2 heads (head_dim 81), FFN=648, ctx=64, tied byte-level head.
   Parameters: **999,540 (≈ 1M)**. Hand-written Adam + `SelfLearner`
   (bounded online adaptation with replay/"sleep" replay).
-- `coder_1m_weights.json` — canonical weights (the 160-step checkpoint).
-- `coder_1m_weights_step160.json` — snapshot of the same checkpoint.
-- `coder_1m_report.txt` — eval report (val PPL 15.31, train PPL 23.34,
-  micro-bench 0/3 exact, avg char accuracy 0.194) + self-learn demo section
-  (probe PPL 17.48 → 11.51 → 9.12).
+- `coder_1m_weights.json` — canonical weights (the resumed 160-step run;
+  see Status).
+- `coder_1m_weights_step160.json` — snapshot of the pre-resume checkpoint
+  (the older, 16.90 one).
+- `coder_1m_report.txt` — eval report (held-out val PPL 10.17, train PPL
+  16.28, micro-bench 0/3 exact, avg char accuracy 0.306). The self-learning
+  demo section is not in the report — re-append with `--selflearn-demo`
+  (see Status/Notes).
 - `PROGRESS.md` — this file.
 
 ## Metrics history
@@ -30,6 +44,9 @@ State as of 2026-11-23 (continued after leaving for the office).
 - 160-step run trajectory: 39.60(20) → 25.13(40) → 22.86(60) → 20.08(80)
   → 19.00(100) → 17.66(120) → 17.11(140) → 16.90(160)
 - 120-step background round (restarted from scratch): val PPL 17.07
+- Resumed run (160 steps from the 16.90 checkpoint, max_positions=128 eval):
+  14.93(20) → 14.28(40) → 12.53(60) → 11.50(80) → 12.37(100) → 11.52(120)
+  → 11.60(140) → 10.44(160)
 - Random baseline (uniform over 260 tokens): ln(260) ≈ 5.56
 
 ## Self-learning demo (from report)
@@ -40,10 +57,13 @@ State as of 2026-11-23 (continued after leaving for the office).
 
 ## Notes for continuation
 1. To keep improving: `python3 -u coder_1m.py --train --steps 160 --resume`
-   (resumes from the canonical checkpoint; ~30 min). Expect mild gains
-   (~0.1 PPL per 20 steps); diminishing returns below ~15.
+   (resumes from the canonical checkpoint). Gains are now smaller — the
+   resumed run already pulled val PPL from ~16.9 to ~10.4 (final 10.44);
+   expect a few tenths of PPL per 20 steps, with diminishing returns below ~10.
 2. To re-evaluate the current model: `python3 -u coder_1m.py --eval`
-   (rewrites `coder_1m_report.txt`) then `--selflearn-demo` to re-append.
+   (rewrites `coder_1m_report.txt`). Note: `--eval` drops the
+   "Self-learning demo" section from the report — re-append it with
+   `--selflearn-demo` if the demo record is wanted.
 3. Optional sample: `python3 -u coder_1m.py --generate --prompt "def fizzbuzz(n):" --n 30`.
-4. Honest status: the ~1M-param model learns measurably (val PPL ~15-17 vs
+4. Honest status: the ~1M-param model learns measurably (val PPL ~10.2 vs
    random 5.56) but remains compact; more steps/data/compute would improve it.
