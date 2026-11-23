@@ -10,7 +10,7 @@ can use it as a custom provider:
 
 Usage:
     python3 opencode_server.py [--port 8765] [--max-tokens 64]
-                               [--weights coder_1m_weights.json]
+                               [--weights coder_coding_weights.json]
 """
 
 from __future__ import annotations
@@ -240,7 +240,7 @@ def main():
                     help=f"port to listen on (default {DEFAULT_PORT})")
     ap.add_argument("--max-tokens", type=int, default=DEFAULT_MAX_TOKENS,
                     help=f"server-side cap on generated tokens (default {DEFAULT_MAX_TOKENS})")
-    ap.add_argument("--weights", default=str(HERE / "coder_1m_weights.json"),
+    ap.add_argument("--weights", default=str(HERE / "coder_coding_weights.json"),
                     help="path to the canonical weights JSON")
     args = ap.parse_args()
     _args = args

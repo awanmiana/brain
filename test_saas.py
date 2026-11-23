@@ -86,7 +86,7 @@ class SaaSBackendTests(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertIn("text", body)
         self.assertIn("finish_reason", body)
-        self.assertEqual(body["model"], "brain-ai-moe")
+        self.assertEqual(body["model"], "brain")
 
     def test_dashboard(self):
         status, body = self._get("/")
