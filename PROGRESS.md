@@ -31,6 +31,16 @@ State as of 2026-11-23 (continued after leaving for the office).
   - `coder_debug_weights.json`, `coder_conversation_weights.json`,
     `coder_tools_weights.json`, `coder_logic_weights.json`,
     `coder_lang_weights.json` — the five purpose variants — GPU training.
+- Four new experts — trained on the RTX 3050 GPU:
+  - `coder_english_weights.json` — the 1M English language expert
+    (`train_variant_torch.py --corpus corpus_english.txt`) — final val PPL 10.45
+  - `coder_urdu_weights.json` — the 1M Urdu language expert
+    (`train_variant_torch.py --corpus corpus_urdu.txt`) — final val PPL 2.84
+  - `coder_vision_weights.json` — the 1M vision expert — image-captioning
+    style: reads raw BMP image bytes (`corpus_vision.bin`) and emits the
+    caption/label — final val PPL 1.21
+  - `coder_audio_weights.json` — the 1M audio expert — reads raw WAV bytes
+    (`corpus_audio.bin`) and emits a tone label — final val PPL 2.83
 - Brain AI model (MoE) resume training on GPU: `python3 -u coder_1m_moe.py
   --train --steps 20000 --device cuda --resume` — completed: 20,000 more
   steps from the previous checkpoint (val PPL 27.59) → final val PPL 23.12.
@@ -50,6 +60,15 @@ State as of 2026-11-23 (continued after leaving for the office).
   16.28, micro-bench 0/3 exact, avg char accuracy 0.306). The self-learning
   demo section is not in the report — re-append with `--selflearn-demo`
   (see Status/Notes).
+- `gen_corpus_english.py`, `gen_corpus_urdu.py`, `gen_corpus_vision.py`,
+  `gen_corpus_audio.py` — corpus generators for the four new experts.
+- `corpus_english.txt` (30,042 chars), `corpus_urdu.txt` (20,010 chars),
+  `corpus_vision.bin` (20,165 bytes — `vision_examples.json`),
+  `corpus_audio.bin` (294,152 bytes — `audio_examples.json`).
+- `train_expert_torch.py` — GPU trainer for text and binary (vision/audio)
+  corpora (same weight format as `coder_1m.py`).
+- `coder_english_weights.json`, `coder_urdu_weights.json`,
+  `coder_vision_weights.json`, `coder_audio_weights.json` — the four new experts.
 - `PROGRESS.md` — this file.
 
 ## Metrics history
@@ -65,6 +84,8 @@ State as of 2026-11-23 (continued after leaving for the office).
   conversation 8.39, tools 3.05, logic 11.37, lang 18.74 (500 steps each)
 - Brain AI model (MoE) GPU resume training (20,000 steps): val PPL 27.59
   (checkpoint) → 23.12 (step 20000)
+- Four new experts (RTX 3050 GPU): English 10.45, Urdu 2.84, vision 1.21,
+  audio 2.83 (final val PPL per expert, 500 steps each)
 - Random baseline (uniform over 260 tokens): ln(260) ≈ 5.56
 
 ## Self-learning demo (from report)

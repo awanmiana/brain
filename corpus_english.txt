@@ -1,0 +1,651 @@
+She sells seashells by the seashore. Fortune favors the bold. The squeaky wheel gets the grease. Feedback is a gift.
+
+The early bird catches the worm. Knowledge is power. Don't count your chickens before they hatch. When in Rome, do as the Romans do. Measure twice, cut once. Don't count your chickens before they hatch. A picture is worth a thousand words.
+
+The squeaky wheel gets the grease. Simplicity is the ultimate sophistication. The quick brown fox jumps over the lazy dog. A picture is worth a thousand words.
+
+Notes: The meeting is scheduled for Friday at 10:00 AM. Please arrive early.
+
+A friend in need is a friend indeed. The quick brown fox jumps over the lazy dog. Don't count your chickens before they hatch. The squeaky wheel gets the grease. Feedback is a gift. Every cloud has a silver lining. Great minds think alike.
+
+Feedback summary: the product works well, but the UI needs polishing.
+
+A watched pot never boils. The pen is mightier than the sword. Variety is the spice of life. Knowledge is power.
+
+User: translate to French
+Assistant: Sure, what should I translate?
+
+Project status: milestone two is on track; risks are low.
+
+A picture is worth a thousand words. Fortune favors the bold. The pen is mightier than the sword. The pen is mightier than the sword. Great minds think alike. The squeaky wheel gets the grease.
+
+Reminder: the library closes at 6 PM.
+
+Project status: milestone two is on track; risks are low.
+
+She sells seashells by the seashore. It is always darkest just before the dawn. The quick brown fox jumps over the lazy dog. A friend in need is a friend indeed. A watched pot never boils. Don't count your chickens before they hatch.
+
+User: can you write an email?
+Assistant: Sure — tell me the details and I'll draft one.
+
+User: can you write an email?
+Assistant: Sure — tell me the details and I'll draft one.
+
+Advice: When in doubt, start over — it's often faster than debugging.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+Practice makes perfect. The squeaky wheel gets the grease. Knowledge is power. Too many cooks spoil the broth. Practice makes perfect. The early bird catches the worm.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+Measure twice, cut once. Knowledge is power. A rolling stone gathers no moss. Measure twice, cut once.
+
+User: summarize this paragraph
+Assistant: Happy to — please paste the text.
+
+She sells seashells by the seashore. The early bird catches the worm. Don't count your chickens before they hatch. Measure twice, cut once. A picture is worth a thousand words. Don't count your chickens before they hatch. Too many cooks spoil the broth.
+
+Practice makes perfect. Every cloud has a silver lining. Great minds think alike. The early bird catches the worm. Knowledge is power. Fortune favors the bold. It is always darkest just before the dawn.
+
+History: The tower was completed in 1884 and opened to the public the next year.
+
+Project status: milestone two is on track; risks are low.
+
+Honesty is the best policy. Honesty is the best policy. Great minds think alike. A watched pot never boils. Variety is the spice of life. Time and tide wait for no man.
+
+To-do list: 1. Buy groceries 2. Water the plants 3. Pay the invoice.
+
+It is always darkest just before the dawn. Every cloud has a silver lining. The pen is mightier than the sword. Rome was not built in a day.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+Science: The speed of light is approximately 300,000 km/s.
+
+She sells seashells by the seashore. When in Rome, do as the Romans do. She sells seashells by the seashore. The quick brown fox jumps over the lazy dog. Time and tide wait for no man.
+
+User: thanks for the help
+Assistant: You're welcome! Anything else I can do for you?
+
+History: The tower was completed in 1884 and opened to the public the next year.
+
+User: who built you?
+Assistant: I'm an AI language model trained for text generation.
+
+User: who built you?
+Assistant: I'm an AI language model trained for text generation.
+
+Note to self: check the oven at 200C — time 20 minutes.
+
+User: thanks for the help
+Assistant: You're welcome! Anything else I can do for you?
+
+Great minds think alike. The pen is mightier than the sword. The quick brown fox jumps over the lazy dog. Great minds think alike. The quick brown fox jumps over the lazy dog. Fortune favors the bold.
+
+User: good morning
+Assistant: Good morning! Hope your day is off to a great start.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+Notes: The meeting is scheduled for Friday at 10:00 AM. Please arrive early.
+
+Reminder: the library closes at 6 PM.
+
+Note to self: check the oven at 200C — time 20 minutes.
+
+Note to self: check the oven at 200C — time 20 minutes.
+
+It is always darkest just before the dawn. She sells seashells by the seashore. Variety is the spice of life. A picture is worth a thousand words. Practice makes perfect. Simplicity is the ultimate sophistication. She sells seashells by the seashore.
+
+Project status: milestone two is on track; risks are low.
+
+The early bird catches the worm. Great minds think alike. A rolling stone gathers no moss. A friend in need is a friend indeed. Practice makes perfect. The squeaky wheel gets the grease. Don't count your chickens before they hatch.
+
+A watched pot never boils. A picture is worth a thousand words. The pen is mightier than the sword. Practice makes perfect. Simplicity is the ultimate sophistication. A stitch in time saves nine.
+
+Advice: When in doubt, start over — it's often faster than debugging.
+
+The squeaky wheel gets the grease. Feedback is a gift. It is always darkest just before the dawn. The quick brown fox jumps over the lazy dog. Honesty is the best policy. Feedback is a gift.
+
+She sells seashells by the seashore. When in Rome, do as the Romans do. She sells seashells by the seashore. Fortune favors the bold. A friend in need is a friend indeed. Every cloud has a silver lining. It is always darkest just before the dawn.
+
+Advice: When in doubt, start over — it's often faster than debugging.
+
+User: can you write an email?
+Assistant: Sure — tell me the details and I'll draft one.
+
+User: translate to French
+Assistant: Sure, what should I translate?
+
+A watched pot never boils. The squeaky wheel gets the grease. The quick brown fox jumps over the lazy dog. It is always darkest just before the dawn. Knowledge is power.
+
+User: tell me a joke
+Assistant: Why don't scientists trust atoms? Because they make up everything!
+
+Project status: milestone two is on track; risks are low.
+
+User: good morning
+Assistant: Good morning! Hope your day is off to a great start.
+
+Advice: When in doubt, start over — it's often faster than debugging.
+
+Note to self: check the oven at 200C — time 20 minutes.
+
+User: who built you?
+Assistant: I'm an AI language model trained for text generation.
+
+Advice: When in doubt, start over — it's often faster than debugging.
+
+Feedback is a gift. The early bird catches the worm. Time and tide wait for no man. Time and tide wait for no man. The early bird catches the worm. Simplicity is the ultimate sophistication. Simplicity is the ultimate sophistication.
+
+The early bird catches the worm. Fortune favors the bold. She sells seashells by the seashore. A watched pot never boils. A picture is worth a thousand words. A friend in need is a friend indeed.
+
+To-do list: 1. Buy groceries 2. Water the plants 3. Pay the invoice.
+
+Feedback summary: the product works well, but the UI needs polishing.
+
+A rolling stone gathers no moss. She sells seashells by the seashore. When in Rome, do as the Romans do. The early bird catches the worm. Great minds think alike. A friend in need is a friend indeed.
+
+User: good morning
+Assistant: Good morning! Hope your day is off to a great start.
+
+Note to self: check the oven at 200C — time 20 minutes.
+
+User: summarize this paragraph
+Assistant: Happy to — please paste the text.
+
+User: what can you do?
+Assistant: I write text, summarize, explain, and chat about many topics.
+
+A rolling stone gathers no moss. Knowledge is power. Measure twice, cut once. A stitch in time saves nine. Time and tide wait for no man. Don't count your chickens before they hatch. Great minds think alike.
+
+User: thanks for the help
+Assistant: You're welcome! Anything else I can do for you?
+
+User: what can you do?
+Assistant: I write text, summarize, explain, and chat about many topics.
+
+User: hello
+Assistant: Hi there! How can I help you today?
+
+User: tell me a joke
+Assistant: Why don't scientists trust atoms? Because they make up everything!
+
+Feedback summary: the product works well, but the UI needs polishing.
+
+Advice: When in doubt, start over — it's often faster than debugging.
+
+Reminder: the library closes at 6 PM.
+
+User: hello
+Assistant: Hi there! How can I help you today?
+
+History: The tower was completed in 1884 and opened to the public the next year.
+
+A picture is worth a thousand words. When in Rome, do as the Romans do. The pen is mightier than the sword. Feedback is a gift. Feedback is a gift. Too many cooks spoil the broth. Fortune favors the bold.
+
+It is always darkest just before the dawn. The squeaky wheel gets the grease. Simplicity is the ultimate sophistication. A watched pot never boils. Feedback is a gift. Variety is the spice of life. A rolling stone gathers no moss.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+Feedback summary: the product works well, but the UI needs polishing.
+
+User: who built you?
+Assistant: I'm an AI language model trained for text generation.
+
+Great minds think alike. Time and tide wait for no man. Knowledge is power. Measure twice, cut once. Too many cooks spoil the broth.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+A rolling stone gathers no moss. Every cloud has a silver lining. She sells seashells by the seashore. Honesty is the best policy.
+
+User: hello
+Assistant: Hi there! How can I help you today?
+
+User: thanks for the help
+Assistant: You're welcome! Anything else I can do for you?
+
+Feedback summary: the product works well, but the UI needs polishing.
+
+Great minds think alike. Practice makes perfect. The pen is mightier than the sword. Time and tide wait for no man. Fortune favors the bold.
+
+A picture is worth a thousand words. Too many cooks spoil the broth. The pen is mightier than the sword. A friend in need is a friend indeed. Great minds think alike. The early bird catches the worm. Time and tide wait for no man.
+
+User: thanks for the help
+Assistant: You're welcome! Anything else I can do for you?
+
+User: who built you?
+Assistant: I'm an AI language model trained for text generation.
+
+Notes: The meeting is scheduled for Friday at 10:00 AM. Please arrive early.
+
+History: The tower was completed in 1884 and opened to the public the next year.
+
+Advice: When in doubt, start over — it's often faster than debugging.
+
+When in Rome, do as the Romans do. Fortune favors the bold. Practice makes perfect. The pen is mightier than the sword. Simplicity is the ultimate sophistication. The pen is mightier than the sword. A picture is worth a thousand words.
+
+Project status: milestone two is on track; risks are low.
+
+User: can you write an email?
+Assistant: Sure — tell me the details and I'll draft one.
+
+The pen is mightier than the sword. Feedback is a gift. A rolling stone gathers no moss. Don't count your chickens before they hatch. The squeaky wheel gets the grease. The early bird catches the worm.
+
+User: who built you?
+Assistant: I'm an AI language model trained for text generation.
+
+User: who built you?
+Assistant: I'm an AI language model trained for text generation.
+
+Advice: When in doubt, start over — it's often faster than debugging.
+
+User: thanks for the help
+Assistant: You're welcome! Anything else I can do for you?
+
+It is always darkest just before the dawn. Rome was not built in a day. The squeaky wheel gets the grease. Don't count your chickens before they hatch. A picture is worth a thousand words. Measure twice, cut once.
+
+The squeaky wheel gets the grease. A friend in need is a friend indeed. Don't count your chickens before they hatch. Knowledge is power.
+
+Variety is the spice of life. Every cloud has a silver lining. Don't count your chickens before they hatch. Time and tide wait for no man. It is always darkest just before the dawn.
+
+User: who built you?
+Assistant: I'm an AI language model trained for text generation.
+
+User: what is the weather like?
+Assistant: I don't have live weather data, but typically it changes every few hours.
+
+User: what can you do?
+Assistant: I write text, summarize, explain, and chat about many topics.
+
+User: can you write an email?
+Assistant: Sure — tell me the details and I'll draft one.
+
+User: hello
+Assistant: Hi there! How can I help you today?
+
+Project status: milestone two is on track; risks are low.
+
+A friend in need is a friend indeed. Rome was not built in a day. A watched pot never boils. Every cloud has a silver lining.
+
+User: translate to French
+Assistant: Sure, what should I translate?
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+A stitch in time saves nine. When in Rome, do as the Romans do. Great minds think alike. Fortune favors the bold. The quick brown fox jumps over the lazy dog.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+Advice: When in doubt, start over — it's often faster than debugging.
+
+User: hello
+Assistant: Hi there! How can I help you today?
+
+Science: The speed of light is approximately 300,000 km/s.
+
+User: can you write an email?
+Assistant: Sure — tell me the details and I'll draft one.
+
+User: translate to French
+Assistant: Sure, what should I translate?
+
+User: what is the weather like?
+Assistant: I don't have live weather data, but typically it changes every few hours.
+
+Practice makes perfect. Simplicity is the ultimate sophistication. She sells seashells by the seashore. A friend in need is a friend indeed.
+
+User: what is the weather like?
+Assistant: I don't have live weather data, but typically it changes every few hours.
+
+User: what can you do?
+Assistant: I write text, summarize, explain, and chat about many topics.
+
+Knowledge is power. A picture is worth a thousand words. The squeaky wheel gets the grease. Great minds think alike. Rome was not built in a day.
+
+She sells seashells by the seashore. When in Rome, do as the Romans do. Don't count your chickens before they hatch. When in Rome, do as the Romans do.
+
+Feedback summary: the product works well, but the UI needs polishing.
+
+The quick brown fox jumps over the lazy dog. The squeaky wheel gets the grease. Practice makes perfect. A rolling stone gathers no moss. Variety is the spice of life. A friend in need is a friend indeed.
+
+User: translate to French
+Assistant: Sure, what should I translate?
+
+Project status: milestone two is on track; risks are low.
+
+User: translate to French
+Assistant: Sure, what should I translate?
+
+When in Rome, do as the Romans do. Feedback is a gift. It is always darkest just before the dawn. Don't count your chickens before they hatch.
+
+User: tell me a joke
+Assistant: Why don't scientists trust atoms? Because they make up everything!
+
+User: summarize this paragraph
+Assistant: Happy to — please paste the text.
+
+Notes: The meeting is scheduled for Friday at 10:00 AM. Please arrive early.
+
+Note to self: check the oven at 200C — time 20 minutes.
+
+User: translate to French
+Assistant: Sure, what should I translate?
+
+Fortune favors the bold. She sells seashells by the seashore. Fortune favors the bold. Knowledge is power. A stitch in time saves nine. A rolling stone gathers no moss.
+
+User: what can you do?
+Assistant: I write text, summarize, explain, and chat about many topics.
+
+Project status: milestone two is on track; risks are low.
+
+Great minds think alike. Honesty is the best policy. Measure twice, cut once. A friend in need is a friend indeed. It is always darkest just before the dawn. A stitch in time saves nine.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+User: help me debug this code
+Assistant: Share the code and the error you're seeing.
+
+A stitch in time saves nine. The squeaky wheel gets the grease. A stitch in time saves nine. A friend in need is a friend indeed. A rolling stone gathers no moss. A rolling stone gathers no moss.
+
+A rolling stone gathers no moss. When in Rome, do as the Romans do. A watched pot never boils. The squeaky wheel gets the grease. When in Rome, do as the Romans do. It is always darkest just before the dawn.
+
+Great minds think alike. A watched pot never boils. It is always darkest just before the dawn. Don't count your chickens before they hatch.
+
+User: what can you do?
+Assistant: I write text, summarize, explain, and chat about many topics.
+
+Notes: The meeting is scheduled for Friday at 10:00 AM. Please arrive early.
+
+Knowledge is power. Rome was not built in a day. The quick brown fox jumps over the lazy dog. A stitch in time saves nine. A friend in need is a friend indeed. The pen is mightier than the sword. It is always darkest just before the dawn.
+
+A watched pot never boils. Rome was not built in a day. Honesty is the best policy. A rolling stone gathers no moss. Fortune favors the bold. Knowledge is power.
+
+Note to self: check the oven at 200C — time 20 minutes.
+
+A stitch in time saves nine. The squeaky wheel gets the grease. The early bird catches the worm. Great minds think alike. Rome was not built in a day.
+
+User: can you write an email?
+Assistant: Sure — tell me the details and I'll draft one.
+
+The quick brown fox jumps over the lazy dog. Every cloud has a silver lining. Variety is the spice of life. Practice makes perfect.
+
+User: summarize this paragraph
+Assistant: Happy to — please paste the text.
+
+Great minds think alike. It is always darkest just before the dawn. Variety is the spice of life. Practice makes perfect. Feedback is a gift. She sells seashells by the seashore. Simplicity is the ultimate sophistication.
+
+User: tell me a joke
+Assistant: Why don't scientists trust atoms? Because they make up everything!
+
+Feedback summary: the product works well, but the UI needs polishing.
+
+A friend in need is a friend indeed. Don't count your chickens before they hatch. Feedback is a gift. Don't count your chickens before they hatch.
+
+User: what can you do?
+Assistant: I write text, summarize, explain, and chat about many topics.
+
+Feedback summary: the product works well, but the UI needs polishing.
+
+Advice: When in doubt, start over — it's often faster than debugging.
+
+Every cloud has a silver lining. Every cloud has a silver lining. Practice makes perfect. It is always darkest just before the dawn. It is always darkest just before the dawn. Variety is the spice of life.
+
+Measure twice, cut once. A rolling stone gathers no moss. Fortune favors the bold. Measure twice, cut once. Knowledge is power. Practice makes perfect. Honesty is the best policy.
+
+User: translate to French
+Assistant: Sure, what should I translate?
+
+Time and tide wait for no man. A watched pot never boils. Great minds think alike. She sells seashells by the seashore.
+
+User: hello
+Assistant: Hi there! How can I help you today?
+
+User: tell me a joke
+Assistant: Why don't scientists trust atoms? Because they make up everything!
+
+Advice: When in doubt, start over — it's often faster than debugging.
+
+It is always darkest just before the dawn. Practice makes perfect. Practice makes perfect. Don't count your chickens before they hatch. A friend in need is a friend indeed. It is always darkest just before the dawn. A watched pot never boils.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+Every cloud has a silver lining. Every cloud has a silver lining. Honesty is the best policy. A watched pot never boils. A picture is worth a thousand words.
+
+User: what is the weather like?
+Assistant: I don't have live weather data, but typically it changes every few hours.
+
+User: tell me a joke
+Assistant: Why don't scientists trust atoms? Because they make up everything!
+
+User: summarize this paragraph
+Assistant: Happy to — please paste the text.
+
+Great minds think alike. A stitch in time saves nine. A watched pot never boils. Great minds think alike. A watched pot never boils. A rolling stone gathers no moss.
+
+User: summarize this paragraph
+Assistant: Happy to — please paste the text.
+
+The squeaky wheel gets the grease. Time and tide wait for no man. Too many cooks spoil the broth. Too many cooks spoil the broth. Every cloud has a silver lining. Great minds think alike. A stitch in time saves nine.
+
+User: thanks for the help
+Assistant: You're welcome! Anything else I can do for you?
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+Reminder: the library closes at 6 PM.
+
+Project status: milestone two is on track; risks are low.
+
+User: good morning
+Assistant: Good morning! Hope your day is off to a great start.
+
+Reminder: the library closes at 6 PM.
+
+User: hello
+Assistant: Hi there! How can I help you today?
+
+To-do list: 1. Buy groceries 2. Water the plants 3. Pay the invoice.
+
+User: help me debug this code
+Assistant: Share the code and the error you're seeing.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+User: hello
+Assistant: Hi there! How can I help you today?
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+User: help me debug this code
+Assistant: Share the code and the error you're seeing.
+
+Feedback is a gift. Too many cooks spoil the broth. A rolling stone gathers no moss. A rolling stone gathers no moss.
+
+Feedback summary: the product works well, but the UI needs polishing.
+
+Variety is the spice of life. She sells seashells by the seashore. Honesty is the best policy. A friend in need is a friend indeed.
+
+Practice makes perfect. A watched pot never boils. The quick brown fox jumps over the lazy dog. It is always darkest just before the dawn. Too many cooks spoil the broth. Great minds think alike. A rolling stone gathers no moss.
+
+Science: The speed of light is approximately 300,000 km/s.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+User: can you write an email?
+Assistant: Sure — tell me the details and I'll draft one.
+
+User: can you write an email?
+Assistant: Sure — tell me the details and I'll draft one.
+
+The early bird catches the worm. The quick brown fox jumps over the lazy dog. A friend in need is a friend indeed. A friend in need is a friend indeed. The pen is mightier than the sword. Practice makes perfect. Don't count your chickens before they hatch.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+Notes: The meeting is scheduled for Friday at 10:00 AM. Please arrive early.
+
+Great minds think alike. The early bird catches the worm. Don't count your chickens before they hatch. The early bird catches the worm.
+
+Feedback summary: the product works well, but the UI needs polishing.
+
+Feedback is a gift. A picture is worth a thousand words. A rolling stone gathers no moss. A friend in need is a friend indeed.
+
+To-do list: 1. Buy groceries 2. Water the plants 3. Pay the invoice.
+
+Variety is the spice of life. Fortune favors the bold. Measure twice, cut once. Variety is the spice of life. A friend in need is a friend indeed. Time and tide wait for no man.
+
+User: help me debug this code
+Assistant: Share the code and the error you're seeing.
+
+User: what is the weather like?
+Assistant: I don't have live weather data, but typically it changes every few hours.
+
+Note to self: check the oven at 200C — time 20 minutes.
+
+Notes: The meeting is scheduled for Friday at 10:00 AM. Please arrive early.
+
+To-do list: 1. Buy groceries 2. Water the plants 3. Pay the invoice.
+
+Project status: milestone two is on track; risks are low.
+
+User: good morning
+Assistant: Good morning! Hope your day is off to a great start.
+
+To-do list: 1. Buy groceries 2. Water the plants 3. Pay the invoice.
+
+User: help me debug this code
+Assistant: Share the code and the error you're seeing.
+
+Advice: When in doubt, start over — it's often faster than debugging.
+
+Honesty is the best policy. Every cloud has a silver lining. The pen is mightier than the sword. Feedback is a gift.
+
+User: thanks for the help
+Assistant: You're welcome! Anything else I can do for you?
+
+User: summarize this paragraph
+Assistant: Happy to — please paste the text.
+
+User: good morning
+Assistant: Good morning! Hope your day is off to a great start.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+User: tell me a joke
+Assistant: Why don't scientists trust atoms? Because they make up everything!
+
+History: The tower was completed in 1884 and opened to the public the next year.
+
+Every cloud has a silver lining. A picture is worth a thousand words. Feedback is a gift. Simplicity is the ultimate sophistication. She sells seashells by the seashore. Don't count your chickens before they hatch. The squeaky wheel gets the grease.
+
+User: tell me a joke
+Assistant: Why don't scientists trust atoms? Because they make up everything!
+
+Project status: milestone two is on track; risks are low.
+
+Measure twice, cut once. Rome was not built in a day. Too many cooks spoil the broth. A rolling stone gathers no moss. Honesty is the best policy. Every cloud has a silver lining. Every cloud has a silver lining.
+
+History: The tower was completed in 1884 and opened to the public the next year.
+
+User: hello
+Assistant: Hi there! How can I help you today?
+
+Note to self: check the oven at 200C — time 20 minutes.
+
+Variety is the spice of life. It is always darkest just before the dawn. Honesty is the best policy. The early bird catches the worm.
+
+Reminder: the library closes at 6 PM.
+
+Notes: The meeting is scheduled for Friday at 10:00 AM. Please arrive early.
+
+Reminder: the library closes at 6 PM.
+
+Note to self: check the oven at 200C — time 20 minutes.
+
+Feedback summary: the product works well, but the UI needs polishing.
+
+User: what is the weather like?
+Assistant: I don't have live weather data, but typically it changes every few hours.
+
+User: tell me a joke
+Assistant: Why don't scientists trust atoms? Because they make up everything!
+
+Reminder: the library closes at 6 PM.
+
+Variety is the spice of life. Feedback is a gift. Variety is the spice of life. A rolling stone gathers no moss. Great minds think alike. The early bird catches the worm.
+
+Note to self: check the oven at 200C — time 20 minutes.
+
+User: tell me a joke
+Assistant: Why don't scientists trust atoms? Because they make up everything!
+
+User: summarize this paragraph
+Assistant: Happy to — please paste the text.
+
+Notes: The meeting is scheduled for Friday at 10:00 AM. Please arrive early.
+
+A rolling stone gathers no moss. The pen is mightier than the sword. A friend in need is a friend indeed. Feedback is a gift.
+
+To-do list: 1. Buy groceries 2. Water the plants 3. Pay the invoice.
+
+Don't count your chickens before they hatch. It is always darkest just before the dawn. Simplicity is the ultimate sophistication. She sells seashells by the seashore.
+
+User: summarize this paragraph
+Assistant: Happy to — please paste the text.
+
+User: summarize this paragraph
+Assistant: Happy to — please paste the text.
+
+User: translate to French
+Assistant: Sure, what should I translate?
+
+Time and tide wait for no man. Honesty is the best policy. The early bird catches the worm. The pen is mightier than the sword. Fortune favors the bold. A stitch in time saves nine. The pen is mightier than the sword.
+
+It is always darkest just before the dawn. Fortune favors the bold. Simplicity is the ultimate sophistication. A rolling stone gathers no moss.
+
+When in Rome, do as the Romans do. Too many cooks spoil the broth. Knowledge is power. The quick brown fox jumps over the lazy dog. Honesty is the best policy. A picture is worth a thousand words. When in Rome, do as the Romans do.
+
+Reminder: the library closes at 6 PM.
+
+User: who built you?
+Assistant: I'm an AI language model trained for text generation.
+
+User: summarize this paragraph
+Assistant: Happy to — please paste the text.
+
+Rome was not built in a day. Too many cooks spoil the broth. Great minds think alike. Too many cooks spoil the broth.
+
+Science: The speed of light is approximately 300,000 km/s.
+
+History: The tower was completed in 1884 and opened to the public the next year.
+
+A watched pot never boils. She sells seashells by the seashore. The early bird catches the worm. Every cloud has a silver lining. Don't count your chickens before they hatch.
+
+User: what is the weather like?
+Assistant: I don't have live weather data, but typically it changes every few hours.
+
+User: what is the weather like?
+Assistant: I don't have live weather data, but typically it changes every few hours.
+
+User: good morning
+Assistant: Good morning! Hope your day is off to a great start.
+
+Cooking tip: salt your water liberally — it's the only one that counts.
+
+The pen is mightier than the sword. A rolling stone gathers no moss. The quick brown fox jumps over the lazy dog. Too many cooks spoil the broth. She sells seashells by the seashore. A watched pot never boils.
+
+Feedback summary: the product works well, but the UI needs polishing.
+
+It is always darkest just before the dawn. Time and tide wait for no man. Every cloud has a silver lining. Variety is the spice of life. Measure twice, cut once.
+
+History: The tower was completed in 1884 and opened to the public the next year.
+
+Feedback is a gift. A rolling stone gathers no moss. A watched pot never boils. When in Rome, do as the Romans do. A stitch in time saves nine. Feedback is a gift. Practice makes perfect.
+
+User: what can you do?
+Assistant: I write text, summarize, explain, and chat about many topics.
+
+Variety is the spice of life. Rome was not built in a day. A picture is worth a thousand words. The quick brown fox jumps over the lazy dog.
+
