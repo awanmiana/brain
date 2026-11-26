@@ -10,7 +10,16 @@ Single package entry point. Everything else delegates to the existing
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
 __version__ = "2.0.0"
+
+# repo root holds the top-level brain11_* modules; make them importable even
+# when this package is installed (console script `brain11`, `python -m brain11`).
+_ROOT = Path(__file__).resolve().parent.parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
 
 # --- model architecture ---
 from brain11_model import Brain, Brain11Config, load_model  # noqa: F401

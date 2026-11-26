@@ -31,3 +31,6 @@ brain11_selflearn*
 brain11_memory.json
 brain11_eval_last.json
 brain11_navigate.jsonl
+*.egg-info/
+build/
+dist/
