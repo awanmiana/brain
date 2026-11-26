@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "brain11"
+version = "2.0.0"
+description = "Brain11 — one local edge AI system, three ~10.8M models (33M total): coder + English/Urdu + agentic, with a reactive self-learning loop."
+readme = "Brain11.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+keywords = ["edge-ai", "small-language-model", "code-generation", "urdu", "self-learning"]
+# runtime deps; install CPU or CUDA torch separately as appropriate for your device
+dependencies = ["torch>=2.1", "tokenizers>=0.15", "numpy>=1.24"]
+
+[project.optional-dependencies]
+hf = ["huggingface_hub>=0.24"]
+server = ["huggingface_hub>=0.24"]
+
+[project.scripts]
+brain11 = "brain11.cli:main"
+
+[tool.setuptools]
+packages = ["brain11"]
+# top-level brain11_* modules are imported from source (CLI inserts repo root on sys.path)

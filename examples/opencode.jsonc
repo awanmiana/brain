@@ -1,0 +1,22 @@
+// Brain11 for OpenCode — one entry point, one model name "brain".
+// 1) brain11 serve            (OpenAI-compatible API on 127.0.0.1:8765)
+// 2) paste this into ~/.config/opencode/opencode.jsonc
+// 3) pick model "brain" (or "brain11-coder") as your coding agent.
+// See also:  brain11 opencode
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "brain": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Brain (local 33M edge)",
+      "options": { "baseURL": "http://127.0.0.1:8765/v1", "apiKey": "not-needed" },
+      "models": {
+        "brain": { "name": "Brain (3 x 10.8M)" },
+        "brain11-coder": { "name": "Brain Coder (10.8M)" },
+        "brain11-language": { "name": "Brain Language (10.8M, EN+UR)" },
+        "brain11-agentic": { "name": "Brain Agentic (10.8M)" }
+      }
+    }
+  },
+  "model": "brain/brain"
+}
