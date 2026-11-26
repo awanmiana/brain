@@ -92,6 +92,11 @@ class Brain11ServerModel:
         if kind == "coder":
             res = self.router.code(prompt, n=max_tokens, temperature=min(temperature, 0.4))
             text = res["text"].strip()
+            try:
+                from brain11_loop import Healer
+                text = Healer().normalize(text, prompt)
+            except Exception:
+                pass
             if text and not text.startswith("```"):
                 text = "```python\n" + text + "\n```"
         elif kind == "agentic":
@@ -181,9 +186,12 @@ class BrainHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/v1/models":
             self._send_json(self.model.list_models())
-        elif self.path == "/health":
+        elif self.path in ("/health", "/v1/health"):
             self._send_json({"status": "ok", "model": self.model.model_id,
                              "backend": type(self.model).__name__})
+        elif self.path in ("/v1", "/v1/"):
+            self._send_json({"status": "ok", "model": self.model.model_id,
+                             "endpoints": ["/v1/models", "/v1/chat/completions", "/health", "/v1/health"]})
         else:
             self.send_response(404)
             self.end_headers()

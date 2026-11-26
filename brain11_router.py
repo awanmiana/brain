@@ -101,10 +101,10 @@ class Brain11Router:
         urdu = bool(URDU_RE.search(message))
         if urdu:
             prompt = f"### صارف: {message}\n### معاون:"
-            stops = ("### صارف:", "### User:", "### Story:")
         else:
             prompt = f"### User: {message}\n### Assistant:"
-            stops = ("### User:", "### صارف:", "### Story:")
+        stops = ("### User:", "### Assistant:", "### صارف:", "### معاون:",
+                 "### Story:", "### Text:")
         text = self._get("language").generate(prompt, n=n, temperature=temperature)
         text = _cut(text, stops).strip()
         self._stats["language"] += 1

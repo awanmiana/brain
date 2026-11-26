@@ -121,6 +121,12 @@ def cmd_infer(rest: list[str]) -> int:
     if kind == "code":
         out = r.code(args.text, n=args.n)
         text = out["text"]
+        # honor the name the task asks for even in raw (non-verified) inference
+        try:
+            from brain11_loop import Healer
+            text = Healer().normalize(text, args.text)
+        except Exception:
+            pass
     elif kind == "agentic":
         out = r.agentic(args.text)
         text = json.dumps(out["decision"], ensure_ascii=False, indent=2)
