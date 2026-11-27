@@ -7,11 +7,12 @@ Source code -> GitHub.  Model artifacts -> Hugging Face.  They are separate.
     huggingface-cli login            # or set HF_TOKEN
     brain11 publish-hf --repo-id YOUR_NAME/brain11
 
-Uploads a `models/` dir (or repo root if models/ is empty) containing:
+Uploads MODEL artifacts only (never source code, never optimizer/training state):
     brain11_tokenizer.json
-    brain11_<name>_weights.pt, _best.pt, _state.json, _data.json
-    brain11_<name>_train.npy / _val.npy   (optional, with --include-data)
-Writes a model card. Does NOT touch git. Never run `git add models/`.
+    brain11_<name>_weights.pt, _best.pt
+    brain11_<name>_train.npy / _val.npy / *.jsonl   (optional, with --include-data; NOT recommended for "model only")
+Stages a clean folder so we never upload source or .git. Writes a model card.
+Does NOT touch git. Never run `git add models/`. Source code -> GitHub.
 """
 
 from __future__ import annotations
@@ -25,10 +26,10 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
 
+# MODEL artifacts only. NOT source code. NOT optimizer/training state. NOT raw data.
 ARTIFACT_GLOBS = [
     "brain11_tokenizer.json",
-    "brain11_*_weights.pt", "brain11_*_best.pt", "brain11_*_optim.pt",
-    "brain11_*_state.json", "brain11_*_data.json", "brain11_*_log.jsonl",
+    "brain11_*_weights.pt", "brain11_*_best.pt",
 ]
 
 CARD = """---
@@ -121,7 +122,16 @@ def main(argv: list[str] | None = None) -> int:
         shutil.copy2(f, stage / f.name)
     (stage / "README.md").write_text(CARD, encoding="utf-8")
 
-    api.upload_folder(folder_path=str(stage), repo_id=args.repo_id, repo_type="model")
+    # clean repo: drop remote files that are not part of this model upload
+    keep = {f.name for f in stage.iterdir() if f.is_file()} | {"README.md", ".gitattributes"}
+    for remote in api.list_repo_files(args.repo_id, repo_type="model"):
+        if remote not in keep:
+            api.delete_file(path_in_repo=remote, repo_id=args.repo_id, repo_type="model",
+                            commit_message="remove useless/corrupt artifact before clean model upload")
+            print(f"  removed remote: {remote}")
+
+    api.upload_folder(folder_path=str(stage), repo_id=args.repo_id, repo_type="model",
+                      commit_message="clean model upload: tokenizer + 3x ~10.8M weights (32.4M total)")
     shutil.rmtree(stage)
     print(f"uploaded to https://huggingface.co/{args.repo_id}")
     print("source code is NOT uploaded here; push source to GitHub separately.")
