@@ -86,12 +86,20 @@ def _hash(*parts: str) -> str:
 
 
 def _atomic_write(path: Path, text: str):
-    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp = path.with_suffix(path.suffix + f".{os.getpid()}.tmp")
     with open(tmp, "w", encoding="utf-8") as f:
         f.write(text)
         f.flush()
         os.fsync(f.fileno())
-    os.replace(tmp, path)
+    last = None
+    for i in range(12):  # Windows file-lock retry; no corrupt destination
+        try:
+            os.replace(tmp, path)
+            return
+        except (PermissionError, OSError) as exc:
+            last = exc
+            time.sleep(0.05 * (i + 1))
+    raise last
 
 
 # ------------------------------------------------------------------ memory
@@ -468,7 +476,8 @@ class Doctor11:
                 try:
                     s = json.loads(state.read_text(encoding="utf-8"))
                     self.add("ok", f"{name}: state step {s.get('step')}, "
-                                   f"val {s.get('last_val_ppl')}")
+                                   f"val {s.get('last_val_ppl')}, best {s.get('best_val')}, "
+                                   f"mode {s.get('mode')}, optim_matches_weights {s.get('optim_matches_weights', 'n/a')}")
                 except Exception as exc:
                     self.add("warn", f"{name}: state unreadable: {exc}")
             else:
@@ -477,9 +486,14 @@ class Doctor11:
         for label, path in (("code corpus", CODE_CORPUS),
                             ("selflearn", SELFLEARN)):
             if path.exists():
-                self.add("ok", f"{label}: {path.stat().st_size / 1e6:.2f} MB")
+                size = path.stat().st_size / 1e6
+                extra = "" if size > 0 else " (no verified self-learned examples yet)"
+                self.add("ok", f"{label}: {size:.2f} MB{extra}")
             else:
-                self.add("warn" if label == "selflearn" else "fail", f"{label}: missing {path.name}")
+                # self-learning is optional until first verified `brain11 learn`; code corpus is required
+                self.add("warn" if label == "selflearn" else "fail",
+                         f"{label}: missing {path.name}" +
+                         (" (empty ok; `brain11 doctor --fix` creates it; `brain11 selflearn N` appends verified)" if label == "selflearn" else ""))
 
         free = shutil.disk_usage(HERE).free / (1024 ** 3)
         self.add("ok" if free > 2 else "warn", f"disk free: {free:.1f} GB")
@@ -493,10 +507,31 @@ class Doctor11:
 
     def fix(self) -> list[tuple[str, str]]:
         fixed = []
+
+        # self-learning is optional, but doctor creates a clean empty pool; nothing is fabricated.
+        for path in (SELFLEARN, SELFLEARN_META, REPAIRS):
+            if not path.exists():
+                _atomic_write(path, "")
+                fixed.append(("ok", f"created empty {path.name}"))
+
+        try:
+            from brain11_train import restore_best  # properly restore shared agentic + sync `_state`
+            for r in restore_best(["coder", "language", "agentic"]):
+                name = r.get("model")
+                if r.get("ok"):
+                    fixed.append(("ok", f"{name}: restored `_weights.pt` from `_best.pt`, synced `_state`, "
+                                        f"snapshotted `_optim`; no data deleted ({r.get('backup')})"))
+                else:
+                    # no `_best.pt`: at least rebuild missing `_weights.pt` from `_best.pt` isn't possible; rebuild state if needed
+                    fixed.append(("warn", f"{name}: restore-best skipped: {r.get('error')}"))
+        except Exception as exc:
+            fixed.append(("warn", f"restore-best via trainer failed: {exc}"))
+
         for name in ("coder", "language", "agentic"):
             weights = HERE / f"brain11_{name}_weights.pt"
             best = HERE / f"brain11_{name}_best.pt"
             state = HERE / f"brain11_{name}_state.json"
+            opt = HERE / f"brain11_{name}_optim.pt"
             if not weights.exists() and best.exists():
                 shutil.copyfile(best, weights)
                 fixed.append(("ok", f"{name}: restored missing weights from best checkpoint"))
@@ -516,10 +551,8 @@ class Doctor11:
                     fixed.append(("ok", f"{name}: rebuilt missing state file"))
                 except Exception as exc:
                     fixed.append(("fail", f"{name}: could not rebuild state: {exc}"))
-            opt = HERE / f"brain11_{name}_optim.pt"
             if weights.exists() and not opt.exists():
-                fixed.append(("warn", f"{name}: optimizer state missing (weights intact; "
-                                       "resume will start a fresh optimizer)"))
+                fixed.append(("warn", f"{name}: optimizer state missing (weights intact; resume starts fresh optimizer)"))
         self.report.extend(fixed)
         return self.report
 
@@ -616,21 +649,28 @@ class Teacher11:
         if key in existing:
             return False
         doc = f"### Task:\n{task}\n### Code:\n{code}\n### Tests:\n{tests}\n"
+        SELFLEARN.parent.mkdir(parents=True, exist_ok=True)
         with open(SELFLEARN, "a", encoding="utf-8") as f:
             f.write(json.dumps({"text": doc}, ensure_ascii=False) + "\n")
             f.flush()
             os.fsync(f.fileno())
         meta = {"key": key, "task": task, "source": source,
-                "model_step": model_step, "ts": time.time()}
+                "model_step": model_step, "ts": time.time(),
+                "verified": True, "accepted": True}
         with open(SELFLEARN_META, "a", encoding="utf-8") as f:
             f.write(json.dumps(meta, ensure_ascii=False) + "\n")
+            f.flush()
+            os.fsync(f.fileno())
         return True
 
     def append_repair(self, task: str, bad_code: str, error: str, fixed: str):
         doc = (f"### Task:\n{task}\n### Previous Code:\n{bad_code}\n"
                f"### Error:\n{error}\n### Corrected Code:\n{fixed}\n")
+        REPAIRS.parent.mkdir(parents=True, exist_ok=True)
         with open(REPAIRS, "a", encoding="utf-8") as f:
             f.write(json.dumps({"text": doc}, ensure_ascii=False) + "\n")
+            f.flush()
+            os.fsync(f.fileno())
 
     def learn(self, limit: int = 24, n: int = 4, rounds: int = 2,
               use_memory: bool = True) -> dict:

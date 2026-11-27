@@ -5,9 +5,10 @@ independent 10,793,088-parameter specialists, one router, one verifier loop.
 
 | Model | Corpus | Val PPL (measured) |
 |---|---|---|
-| `brain11_coder` | `brain11_code.jsonl` | **7.33** |
-| `brain11_language` | `brain11_language.jsonl` | **14.47** |
-| `brain11_agentic` | `brain11_agentic.jsonl` | **1.21** |
+| `brain11_coder` | `brain11_code.jsonl` | **6.81** (step 5900, restored best; overfits past this) |
+| `brain11_language` | `brain11_language.jsonl` | **11.35** (step 10700) |
+| `brain11_agentic` | `brain11_agentic.jsonl` | **1.197** (step 200) |
+| `brain11_agentic` + `navigate` (variant-B) | `brain11_agentic_navigate.jsonl` | **1.195** (step 260, shared agentic; **not** a 4th model) |
 
 **Total 32,379,264 params**, ~43.2 MB fp32 per model. Cap: 33M total / ~11M each.
 
@@ -132,3 +133,23 @@ loop, and **abstain** otherwise. It cannot match Qwen-class models on open codin
 ## v1 (superseded, archived)
 
 Byte-level 12.8M `brain11_base.py`, `train_brain11_*`, `gen_agentic_data.py`, `*_weights.json`.
+
+## Variant-B `navigate` mode (shared `agentic`, NOT a 4th model)
+
+`brain11 train navigate` == `brain11 train --model agentic --mode navigate`. Trains shared
+`brain11_agentic_*`. NOT in `all`. Corpus `brain11_agentic_navigate.jsonl` = original read-only
+`brain11_agentic.jsonl` + verified reactive hops `brain11_navigate.jsonl`. Collect:
+`python3 scripts/collect_hops.py --out brain11_navigate.jsonl --limit 50`. Typed hop
+(`### Mode: navigate`, `op`, `target_section`, `pending_before->pending_after`, `test_delta`,
+`accepted`, `negative`). Rejected/rolled-back = **negatives**; `load_docs` does NOT train them.
+Cap-compliant: still 3 x 10,793,088 = 32,379,264 <= 33M.
+
+## Restore best + optimizer correctness
+
+`brain11 restore-best [coder|language|agentic|navigate|all]` -> `_weights.pt` from `_best.pt`,
+syncs `_state.json` (step/tokens/best_val/mode/n_params), snapshots `_weights/_best/_optim/_state`
+to `models/restore_backup/<name>/`. Nothing deleted. `_optim.pt` snapshotted but NOT resumed
+(`optim_matches_weights=false`; fresh optimizer; weights intact) unless it matches restored
+weights+step. Atomic tmp uses unique pid + `os.replace` retry (Windows locks); data-loss-safe.
+`brain11 doctor --fix` creates empty `brain11_selflearn*.jsonl` + runs restore-best; self-learn
+needs verified tests; self-learned data capped; base corpora read-only.

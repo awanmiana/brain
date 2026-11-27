@@ -46,7 +46,14 @@ CORPORA = {
     "coder": HERE / "brain11_code.jsonl",
     "language": HERE / "brain11_language.jsonl",
     "agentic": HERE / "brain11_agentic.jsonl",
+    # variant-B: verified reactive hops + original agentic data; shared 11M agentic model
+    "navigate": HERE / "brain11_agentic_navigate.jsonl",
 }
+
+NAVIGATE_CORPUS = HERE / "brain11_navigate.jsonl"
+AGENTIC_NAVIGATE_CORPUS = HERE / "brain11_agentic_navigate.jsonl"
+# `navigate` is a MODE on the shared agentic model, not a 4th model (stays under 33M cap).
+WEIGHT_NAMES = {"navigate": "agentic"}
 
 
 # ------------------------------------------------------------------ data
@@ -60,6 +67,7 @@ def sha256_file(path: Path) -> str:
 
 
 def load_docs(path: Path) -> list[str]:
+    """Read `{"text": ...}` JSONL. Skip rejected/rolled-back hops (negatives are not SFT targets)."""
     docs = []
     with open(path, "r", encoding="utf-8") as f:
         for line in f:
@@ -67,28 +75,35 @@ def load_docs(path: Path) -> list[str]:
             if not line:
                 continue
             try:
-                docs.append(json.loads(line)["text"])
+                rec = json.loads(line)
+                # `navigate` stores rejected/rolled-back hops as negatives; do not train them as positive actions.
+                if rec.get("accepted") is False or rec.get("negative") is True:
+                    continue
+                docs.append(rec["text"])
             except (json.JSONDecodeError, KeyError):
                 continue
     return docs
 
 
 def build_arrays(name: str, val_frac: float = 0.05) -> tuple[np.ndarray, np.ndarray, dict]:
-    """Encode documents into uint16 arrays, cached by content hash."""
+    """Encode documents into uint16 arrays, cached by content hash. Corpus is read-only; nothing is deleted."""
     corpus = CORPORA[name]
     if not corpus.exists():
-        raise FileNotFoundError(f"missing corpus: {corpus} (run brain11_prepare.py)")
+        raise FileNotFoundError(f"missing corpus: {corpus} (run scripts/collect_hops.py + combine for `navigate`, else brain11_prepare.py)")
+    weight_name = WEIGHT_NAMES.get(name, name)
+    cache_name = f"{weight_name}_navigate" if name == "navigate" else name
     corpus_hash = sha256_file(corpus)
     tok_hash = sha256_file(TOKENIZER_PATH)
     selflearn = HERE / "brain11_selflearn.jsonl"
     selflearn_hash = sha256_file(selflearn) if (name == "coder" and selflearn.exists()) else None
-    meta_path = HERE / f"brain11_{name}_data.json"
-    train_path = HERE / f"brain11_{name}_train.npy"
-    val_path = HERE / f"brain11_{name}_val.npy"
+    meta_path = HERE / f"brain11_{cache_name}_data.json"
+    train_path = HERE / f"brain11_{cache_name}_train.npy"
+    val_path = HERE / f"brain11_{cache_name}_val.npy"
     meta = {
         "corpus": corpus.name, "corpus_sha256": corpus_hash,
         "tokenizer_sha256": tok_hash, "val_frac": val_frac,
         "selflearn_sha256": selflearn_hash, "version": 4,
+        "mode": "navigate" if name == "navigate" else name,
     }
 
     if meta_path.exists() and train_path.exists() and val_path.exists():
@@ -125,17 +140,17 @@ def build_arrays(name: str, val_frac: float = 0.05) -> tuple[np.ndarray, np.ndar
     # np.save appends ".npy" when the name does not end in it, which breaks an
     # os.replace on "<name>.npy.tmp". Write through a file handle instead.
     for arr, path in ((train, train_path), (val, val_path)):
-        tmp = path.with_suffix(path.suffix + ".tmp")
+        tmp = path.with_suffix(path.suffix + f".{os.getpid()}.tmp")
         with open(tmp, "wb") as f:
             np.save(f, arr)
             f.flush()
             os.fsync(f.fileno())
-        os.replace(tmp, path)
+        _retry_replace(tmp, path)
     meta.update({"docs": len(docs), "train_tokens": int(len(train)),
                  "val_tokens": int(len(val)), "encoded_seconds": round(time.time() - t0, 2)})
-    tmp_meta = meta_path.with_suffix(meta_path.suffix + ".tmp")
+    tmp_meta = meta_path.with_suffix(meta_path.suffix + f".{os.getpid()}.tmp")
     tmp_meta.write_text(json.dumps(meta, indent=2), encoding="utf-8")
-    os.replace(tmp_meta, meta_path)
+    _retry_replace(tmp_meta, meta_path)
     print(f"[data] {name}: {len(docs):,} docs -> train={len(train):,} val={len(val):,} tokens "
           f"({time.time() - t0:.1f}s)")
     return train, val, meta
@@ -143,28 +158,42 @@ def build_arrays(name: str, val_frac: float = 0.05) -> tuple[np.ndarray, np.ndar
 
 # ------------------------------------------------------------------ checkpoint helpers
 
+def _retry_replace(src: Path, dst: Path, tries: int = 12):
+    """os.replace with Windows file-lock retry; never leaves a corrupt destination."""
+    last = None
+    for i in range(tries):
+        try:
+            os.replace(src, dst)
+            return
+        except (PermissionError, OSError) as exc:  # WinError 32 on Windows: file in use by another process
+            last = exc
+            time.sleep(0.05 * (i + 1))
+    raise last
+
+
 def atomic_torch_save(obj, path: Path):
-    tmp = path.with_suffix(path.suffix + ".tmp")
+    # unique tmp (pid) avoids two writers colliding on one `.tmp`; closed before replace; retry on Windows locks
+    tmp = path.with_suffix(path.suffix + f".{os.getpid()}.tmp")
     with open(tmp, "wb") as f:
         torch.save(obj, f)
         f.flush()
         os.fsync(f.fileno())
-    os.replace(tmp, path)
+    _retry_replace(tmp, path)
 
 
 def atomic_json_save(obj, path: Path):
-    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp = path.with_suffix(path.suffix + f".{os.getpid()}.tmp")
     with open(tmp, "w", encoding="utf-8") as f:
         json.dump(obj, f, indent=2, ensure_ascii=False)
         f.flush()
         os.fsync(f.fileno())
-    os.replace(tmp, path)
+    _retry_replace(tmp, path)
 
 
 def atomic_copy(src: Path, dst: Path):
-    tmp = dst.with_suffix(dst.suffix + ".tmp")
+    tmp = dst.with_suffix(dst.suffix + f".{os.getpid()}.tmp")
     shutil.copyfile(src, tmp)
-    os.replace(tmp, dst)
+    _retry_replace(tmp, dst)
 
 
 # ------------------------------------------------------------------ training
@@ -196,8 +225,11 @@ def evaluate(model: Brain, val: np.ndarray, seq_len: int, device, max_windows: i
 def train_one(name: str, args, device: str):
     corpus = CORPORA[name]
     if not corpus.exists():
-        print(f"[{name}] missing {corpus.name}; run brain11_prepare.py first")
+        print(f"[{name}] missing {corpus.name}; run brain11_prepare.py first "
+              f"(for `navigate`, run scripts/collect_hops.py --out brain11_navigate.jsonl --limit 50 then combine agentic+navigate)")
         return False
+    weight_name = WEIGHT_NAMES.get(name, name)            # `navigate` trains the shared 11M `agentic` model
+    mode = "navigate" if name == "navigate" else name
     free_gb = shutil.disk_usage(HERE).free / (1024 ** 3)
     if free_gb < 2.0:
         print(f"[{name}] only {free_gb:.1f} GB free disk; refusing to start (need 2 GB)")
@@ -227,28 +259,43 @@ def train_one(name: str, args, device: str):
     ], lr=args.lr, betas=(0.9, 0.95), eps=1e-8)
     scaler = torch.amp.GradScaler("cuda", enabled=(device == "cuda"))
 
-    weights_path = HERE / f"brain11_{name}_weights.pt"
-    optim_path = HERE / f"brain11_{name}_optim.pt"
-    state_path = HERE / f"brain11_{name}_state.json"
-    log_path = HERE / f"brain11_{name}_log.jsonl"
-    best_path = HERE / f"brain11_{name}_best.pt"
+    weights_path = HERE / f"brain11_{weight_name}_weights.pt"
+    optim_path = HERE / f"brain11_{weight_name}_optim.pt"
+    state_path = HERE / f"brain11_{weight_name}_state.json"
+    log_path = HERE / f"brain11_{weight_name}_log.jsonl"
+    best_path = HERE / f"brain11_{weight_name}_best.pt"
 
     step = 0
     tokens_seen = 0
     best_val = float("inf")
     if not args.fresh and state_path.exists() and weights_path.exists():
         state = json.loads(state_path.read_text(encoding="utf-8"))
-        if state.get("data_sha256") not in (None, data_meta["corpus_sha256"]):
+        data_match = state.get("data_sha256") in (None, data_meta["corpus_sha256"])
+        # `navigate` legitimately starts from a base `agentic` checkpoint + combined corpus; then its own `_state` must match.
+        starting_navigate_from_base = (mode == "navigate" and state.get("mode") in (None, "agentic"))
+        if not data_match and not starting_navigate_from_base:
             print(f"[{name}] data changed since checkpoint; use --fresh to start over")
+            return False
+        if starting_navigate_from_base and not data_match:
+            print(f"[{name}] variant-B navigate: base agentic checkpoint + combined navigate corpus; continuing at base step")
+        if state.get("mode") not in (None, mode, weight_name) and not starting_navigate_from_base:
+            print(f"[{name}] checkpoint mode {state.get('mode')!r} != requested {mode!r}; use --fresh to start over")
             return False
         ckpt = torch.load(weights_path, map_location=device, weights_only=False)
         model.load_state_dict(ckpt["state_dict"])
-        if optim_path.exists():
-            opt.load_state_dict(torch.load(optim_path, map_location=device, weights_only=False))
-        step = int(state.get("step", 0))
+        step = int(state.get("step", ckpt.get("step", 0)))
         tokens_seen = int(state.get("tokens_seen", 0))
         best_val = float(state.get("best_val", float("inf")))
-        print(f"[{name}] resumed at step {step}/{args.steps} ({tokens_seen:,} tokens seen)")
+        # Only resume optimizer if it matches the restored weights + step. `restore-best` sets optim_matches_weights=false.
+        optim_ok = (optim_path.exists()
+                    and state.get("optim_matches_weights", True)
+                    and int(state.get("optim_step", step)) == step)
+        if optim_ok:
+            opt.load_state_dict(torch.load(optim_path, map_location=device, weights_only=False))
+            print(f"[{name}] optimizer resumed at step {step}")
+        elif optim_path.exists():
+            print(f"[{name}] optimizer state present but does not match restored weights; starting fresh optimizer (weights intact)")
+        print(f"[{name}] resumed at step {step}/{args.steps} ({tokens_seen:,} tokens seen) mode={mode}")
         if step >= args.steps:
             print(f"[{name}] already at target steps; nothing to do (pass larger --steps to continue)")
             return True
@@ -276,11 +323,15 @@ def train_one(name: str, args, device: str):
             best_val = val_ppl
             atomic_copy(weights_path, best_path)
         state = {
-            "model": name,
+            "model": weight_name,
+            "requested_model": name,
+            "mode": mode,
             "step": step_now,
             "tokens_seen": tokens_seen,
             "best_val": best_val,
             "last_val_ppl": val_ppl,
+            "optim_step": step_now,
+            "optim_matches_weights": True,
             "config": cfg.__dict__,
             "n_params": n_params,
             "corpus": corpus.name,
@@ -383,9 +434,83 @@ def train_one(name: str, args, device: str):
     return True
 
 
+def restore_best(names: list[str], root: Path | None = None) -> list[dict]:
+    """Restore `_weights.pt` from `_best.pt` and synchronize `_state.json`; never deletes training data.
+
+    `_optim.pt` is snapshotted but NOT resumed unless it matches restored weights+step
+    (`optim_matches_weights=false` in `_state`; fresh optimizer on next train).
+    `navigate` restores shared `agentic`.
+    """
+    root = root or HERE
+    results = []
+    backup_root = root / "models" / "restore_backup"
+    for name in names:
+        weight_name = WEIGHT_NAMES.get(name, name)
+        weights = root / f"brain11_{weight_name}_weights.pt"
+        best = root / f"brain11_{weight_name}_best.pt"
+        state_path = root / f"brain11_{weight_name}_state.json"
+        optim = root / f"brain11_{weight_name}_optim.pt"
+        if not best.exists():
+            results.append({"model": weight_name, "ok": False, "error": f"missing {best.name}"})
+            continue
+        ckpt = torch.load(best, map_location="cpu", weights_only=False)
+        step = int(ckpt.get("step", 0))
+        cfg = ckpt.get("config", Brain11Config().__dict__)
+        n_params = int(ckpt.get("n_params", Brain11Config(**cfg).n_params()))
+        old_state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
+
+        # snapshot current files before touching anything; nothing is lost
+        backup = backup_root / weight_name
+        backup.mkdir(parents=True, exist_ok=True)
+        tag = time.strftime("%Y%m%dT%H%M%S")
+        for src in (weights, best, state_path, optim):
+            if src.exists():
+                shutil.copy2(src, backup / f"{src.name}.{tag}.bak")
+
+        if weights.exists():
+            shutil.copy2(weights, backup / f"{weights.name}.pre_restore.bak")
+        atomic_copy(best, weights)
+
+        tokens_per_step = int(cfg.get("ctx", 320)) * 8
+        original_step = old_state.get("step")
+        original_last = old_state.get("last_val_ppl")
+        original_tokens = old_state.get("tokens_seen")
+        best_val = float(old_state.get("best_val", float("inf")))
+        state = {
+            "model": weight_name,
+            "mode": old_state.get("mode", weight_name),
+            "step": step,
+            "tokens_seen": step * tokens_per_step,
+            "best_val": best_val,
+            "last_val_ppl": best_val if best_val != float("inf") else original_last,
+            "optim_step": None,
+            "optim_matches_weights": False,   # `_optim.pt` is latest-training state, not optimizer-for-best snapshot
+            "config": cfg,
+            "n_params": n_params,
+            "corpus": old_state.get("corpus"),
+            "data_sha256": old_state.get("data_sha256"),
+            "tokenizer_sha256": old_state.get("tokenizer_sha256"),
+            "updated": time.strftime("%Y-%m-%dT%H:%M:%S"),
+            "final": False,
+            "restored_from_best": best.name,
+            "restored_weights": weights.name,
+            "original_step": original_step,
+            "original_last_val_ppl": original_last,
+            "original_tokens_seen": original_tokens,
+            "backup": str(backup),
+        }
+        atomic_json_save(state, state_path)
+        results.append({"model": weight_name, "ok": True, "step": step, "weights": str(weights),
+                        "state": str(state_path), "backup": str(backup)})
+    return results
+
+
 def main():
     ap = argparse.ArgumentParser(description="Brain11 chunked trainer")
-    ap.add_argument("--model", choices=["coder", "language", "agentic", "all"], default="all")
+    ap.add_argument("--model", choices=["coder", "language", "agentic", "navigate", "all"], default="all",
+                    help="`navigate` = variant-B mode on shared `agentic` model; `all` does NOT train navigate")
+    ap.add_argument("--mode", choices=["navigate"], default=None,
+                    help="`--model agentic --mode navigate` == `--model navigate`")
     ap.add_argument("--steps", type=int, default=1200)
     ap.add_argument("--batch", type=int, default=8)
     ap.add_argument("--seq-len", type=int, default=320)
@@ -402,6 +527,7 @@ def main():
     ap.add_argument("--device", default=None)
     ap.add_argument("--fresh", action="store_true")
     ap.add_argument("--stop-after-chunk", action="store_true")
+    ap.add_argument("--restore-best", action="store_true", help="restore `_weights.pt` from `_best.pt`, sync `_state`, snapshot everything; no training")
     args = ap.parse_args()
 
     device = args.device or ("cuda" if torch.cuda.is_available() else "cpu")
@@ -413,6 +539,14 @@ def main():
               f"        run with the Python that has the CUDA build of torch.")
         return 1
     names = ["coder", "language", "agentic"] if args.model == "all" else [args.model]
+    if args.mode == "navigate":
+        names = ["navigate"]
+    if args.restore_best:
+        restore_names = (["coder", "language", "agentic"] if args.model == "all"
+                         else (["agentic"] if args.model == "navigate" else [args.model]))
+        results = restore_best(restore_names)
+        print(json.dumps(results, indent=2))
+        return 0 if all(r.get("ok") for r in results) else 1
     for name in names:
         ok = train_one(name, args, device)
         if not ok:

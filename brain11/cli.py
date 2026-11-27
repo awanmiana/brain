@@ -14,7 +14,8 @@ Commands
   selflearn      alias of learn
   solve          one task + tests (+self-heal/repair) -> `python3 brain11_loop.py --solve`
   reactive       reactive section-graph construction  -> `python3 brain11_reactive.py`
-  navigate       alias of reactive
+  navigate       alias of reactive; `brain11 train navigate` trains variant-B navigate mode
+  restore-best   restore `_weights` from `_best`, sync `_state`, snapshot; no training
   plan           prerequisite-first planner           -> `python3 brain11_planner.py`
   route          unified router CLI                   -> `python3 brain11_router.py`
   selftest       run all self-tests
@@ -70,13 +71,24 @@ def cmd_selftest(rest: list[str]) -> int:
 
 
 def cmd_train(rest: list[str]) -> int:
-    """Accept `brain11 train coder --steps N` OR `brain11 train --model coder ...`."""
+    """Accept `brain11 train coder --steps N`, `brain11 train navigate`, or `brain11 train --model coder ...`."""
     rest = list(rest)
-    if rest and not rest[0].startswith("-") and rest[0] not in ("all", "coder", "language", "agentic"):
+    if rest and not rest[0].startswith("-") and rest[0] not in ("all", "coder", "language", "agentic", "navigate"):
         print(f"warning: unknown model '{rest[0]}'", file=sys.stderr)
     if rest and not rest[0].startswith("-"):
         rest = ["--model", rest[0]] + rest[1:]
     return _dispatch("brain11_train", "brain11 train", rest)
+
+
+def cmd_restore_best(rest: list[str]) -> int:
+    """`brain11 restore-best [coder|language|agentic|navigate|all]` -> `_weights` from `_best`, sync `_state`, snapshot all."""
+    ap = argparse.ArgumentParser(prog="brain11 restore-best")
+    ap.add_argument("model", nargs="?", default="all")
+    args = ap.parse_args(rest)
+    model = args.model
+    if model in ("navigate", "agentic"):
+        model = "agentic" if model == "navigate" else model
+    return _dispatch("brain11_train", "brain11 restore-best", ["--model", model, "--restore-best"])
 
 
 def cmd_models(rest: list[str]) -> int:
@@ -230,6 +242,8 @@ def main(argv: list[str] | None = None) -> int:
 
     if cmd == "train":
         return cmd_train(rest)
+    if cmd == "restore-best":
+        return cmd_restore_best(rest)
     if cmd in ("selftest", "test"):
         return cmd_selftest(rest)
     if cmd == "models":

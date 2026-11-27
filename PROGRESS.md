@@ -350,3 +350,13 @@ python3 brain_cortex.py --eval-file brain_cortex_eval.json --split novel --n 4 -
 - **New `brain11_reactive.py`**: explicit `CodeState`, `pending_requirements`, `already_satisfied`,
   forward/backward hops, full re-check + test re-run each round; `--selftest` 15/15.
 - **`brain11_planner.py`**: plan-first + AST dataflow + insert_setup + compose ordering; selftest 11/11.
+
+## Final v2 numbers (this build, RTX 3050; cap 33M = 3x10,793,088 = 32,379,264)
+- **coder**: step 5900, val PPL **6.8092** (restored best; 12000/50k overfit 8.09/18.68; kept models/coder6000).
+- **language**: step 10700, val PPL **11.3523**.
+- **agentic**: step 200, val PPL **1.1969**; variant-B **navigate** step 260 val PPL **1.1946** (shared agentic; slight improve; NOT a 4th model).
+- navigate hops: `brain11_navigate.jsonl` 40 records / 20 solved / 0 rejected-negative; combined `brain11_agentic_navigate.jsonl` 12,040 docs; original `brain11_agentic.jsonl` untouched.
+- `brain11 selftest` **9/9**; `brain11 doctor` **green**; `brain11 doctor --fix` creates empty `brain11_selflearn{,_meta,_repairs}.jsonl` + restore-best; `brain11 restore-best all` **ok**.
+- Coding eval `brain11 eval --limit 12` (`brain11_loop`): **loop 0.75 / memory 0.667 / one_shot 0.0 / best_of_n 0.25** (tasks=12); reproducible probe `scripts/test_brain11.py`.
+- Restore snapshot `models/restore_backup/<name>/`; `optim_matches_weights=false` after restore; no training data lost.
+- Source -> git (no weights/`*.pt`/`*.jsonl`/`*.npy` committed); weights -> Hugging Face `awanmiana/brain` private (model-only).
